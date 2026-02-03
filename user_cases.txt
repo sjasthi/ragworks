@@ -1,0 +1,9 @@
+[Use Case1] Who Owns It?
+
+In many big organizations, people spend time in trying to figure out "Who owns <something>?". For example, <something> can be a computer or a software component or a document artifact or a project repo, etc.
+If you are given an excel file of such ownership data, how can we build a chat bot that answers the questions on ownership?
+
+For example, (1) Who owns project ABCD? (2) Who owns ABCD Project? (3) Who owns ABCD?  (4) What are all components owned by Jane Doe?  (5) Which team owns the most number of projects?
+
+So, the chat bot answers any question related to the ownership.
+
