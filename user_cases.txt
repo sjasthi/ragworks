@@ -7,3 +7,18 @@ For example, (1) Who owns project ABCD? (2) Who owns ABCD Project? (3) Who owns 
 
 So, the chat bot answers any question related to the ownership.
 
+
+[Use Case 2]  Do I have it? Did I cover it?
+
+People manage list of <somethings>. It can be a list of people (contacts) or list of movies they watched or books they read or placed they visited.
+
+They give that list (can be an excel having multile columns or a SQL file reflecting a DB table or Database connection) to the AI Agent.
+And then they ask the question to see whether they already covered it or not.
+
+For example, the questions can be:
+- Did I read "Roots" novel?  Is Ulysses in my list?
+- is Jane Doe in my contacts? What is the mobile of John Doe?
+
+
+
+
