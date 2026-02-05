@@ -1,3 +1,5 @@
+
+============
 [Use Case1] Who Owns It?
 
 In many big organizations, people spend time in trying to figure out "Who owns <something>?". For example, <something> can be a computer or a software component or a document artifact or a project repo, etc.
@@ -19,6 +21,22 @@ For example, the questions can be:
 - Did I read "Roots" novel?  Is Ulysses in my list?
 - is Jane Doe in my contacts? What is the mobile of John Doe?
 
+===================================  FP 3 and FP 4 ============================
+
+(Core Problem 1) Vectorization/Embeddings
+
+Given a CSV or Excel File, how do you RAG it and put it into Chroma DB?
+Given a MySQL file (which is MySQL table exported data into .sql format), how do you RAG it and put it into Chroma DB?
+
+(Core Problem 2) Responding to a Question based on RAG
+
+(phase 1) Without any User Interface, try to write a python script by hard coding a question (mimicing the chat) and getting the response.
+You must use OpenAI/LLMs for this purpose.
+
+(phase 2) Enhance the python script to ask the user for a question and try to get the response for the question
+
+
+===================== FP 5 and up ================================================
 
 
 
