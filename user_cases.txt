@@ -38,5 +38,18 @@ You must use OpenAI/LLMs for this purpose.
 
 ===================== FP 5 and up ================================================
 
+(Core Problem 1 Variations)
+PDF
+PPTX
+Docx
+URL (HTML)
+URL (csv . text)
+
+==================== FP 6 ============================
+
+Exposing the python script as Flask Web UI
+
+
+
 
 
