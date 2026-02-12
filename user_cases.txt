@@ -30,13 +30,33 @@ Given a MySQL file (which is MySQL table exported data into .sql format), how do
 
 (Core Problem 2) Responding to a Question based on RAG
 
-(phase 1) Without any User Interface, try to write a python script by hard coding a question (mimicing the chat) and getting the response.
+
+
+(phase 1) Installing ChromaDB on your machine (through python) 
+
+(phase 2): You use Python scripting to RAG a document (start with a text file) ---> Chroma DB
+           You use Python scripting to RAG a document (start with a doc file) ---> Chroma DB
+          You use Python scripting to RAG a document (URL / HTML Content) ---> Chroma DB
+
+
+
+(phase 3) Against each of these sources, without any User Interface, try to write a python script by hard coding a question (mimicing the chat) and getting the response.
 You must use OpenAI/LLMs for this purpose.
 
-(phase 2) Enhance the python script to ask the user for a question and try to get the response for the question
+(phase 4) Enhance the python script to ask the user for a question and try to get the response for the question
 
 
 ===================== FP 5 and up ================================================
+
+How can we expose the FP4 as a web application?
+
+
+-----------------------------------
+Prompt: I want to build a RAG applicaiton based on a bunch of documents and expose Chat box on web to answer the questions based on these documents.
+Can you prepare implementation plan?
+
+We are going with Open SOurce / Free resources: ChromaDB, React/PHP,
+-----------------------------------
 
 (Core Problem 1 Variations)
 PDF
