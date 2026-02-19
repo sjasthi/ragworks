@@ -32,7 +32,7 @@ chroma_client = chromadb.Client()
 
 # load and get api key from environment
 # also making a chroma client
-api_key = "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"
+api_key = os.environ["OPENAI_KEY"]
 
 openai_ef = embedding_functions.OpenAIEmbeddingFunction(
     api_key = api_key,
