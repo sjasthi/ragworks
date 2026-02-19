@@ -1,4 +1,5 @@
 
+
 ============
 [Use Case1] Who Owns It?
 
@@ -20,6 +21,47 @@ And then they ask the question to see whether they already covered it or not.
 For example, the questions can be:
 - Did I read "Roots" novel?  Is Ulysses in my list?
 - is Jane Doe in my contacts? What is the mobile of John Doe?
+
+
+================ FP 5 =========================
+- Word, PDF, URL, Text (Encode these)  (this is onetime activity)
+- Make non-GUI chat to work through python code  (this is everyday activity)
+This proves the round tirp (pushing the docs; getting the responses)
+
+All of you must be in sync and push the code to GITHUB main branch
+- COme up with a plan for FP6 to FP9
+
+================ FP 6 =========================
+As an admin, how can i upload the docs in web app?
+As an admin, how can I upload a brand new document (newer version) when an older version is already in the DB?
+---------> Spring 2026 schedule
+--------> Summer 2026 schedule  (How do I delete a document that I have RAGged before / which is sitting in ChromaDB?)
+As an user, what kinds of questions can I ask?
+As a developer, how do you validate / measure the accuracy of your chat bot?
+
+How does your UI for the chatbot looks like during FP Final? (design)
+
+
+localhost/RAGWorks  (it is meant for users to ask questions)
+
+localhost/RAGWorks/admin  (make the user name and password hardcoded in the code)
+---> Upload a new document for RAGging
+--> show all the documents (that have been RAGged)
+--> Show the date on which these documents got uploaded
+--> ChromaDB statistics / numbers
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ===================================  FP 3 and FP 4 ============================
 
