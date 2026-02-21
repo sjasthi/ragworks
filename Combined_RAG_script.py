@@ -21,7 +21,6 @@ def create_client(api_key):
     except AuthenticationError:
         print("Invalid API")
     return None
-
 load_dotenv()
 
 # Load api key
@@ -97,7 +96,6 @@ def add_docx(file_path):
 
     print(f"{file_path} added successfully. Total stored chunks now: {database.count()}")
 
-
 # TXT Ingestion
 def add_txt(file_path):
     with open(file_path, "r", encoding="utf-8") as file:
@@ -115,7 +113,6 @@ def add_txt(file_path):
 
     print(f"{file_path} added successfully. Total stored chunks now: {database.count()}")
 
-
 # Retrieval
 def get_context(query):
     results = database.query(
@@ -127,7 +124,6 @@ def get_context(query):
         context = "\n\n".join(results["documents"][0])
         return context
     return ""
-
 
 # Chat
 def chat(user_input):
@@ -150,7 +146,6 @@ def chat(user_input):
         model="gpt-4o-mini",
         messages=msg,
     )
-
     response = comp.choices[0].message.content
     return response
 
