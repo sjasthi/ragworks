@@ -171,13 +171,33 @@ while True:
         print("Type html, docx, txt, or none")
 
 # Chat loop
-print("\nRAG READY. Type exit to quit.")
+print("\nRAG READY. Type exit to quit or file to add a new file")
 
 while True:
     user_input = input("You: ")
     if user_input.lower() == 'exit':
         print("RAG: Goodbye!")
         break
+    elif user_input.lower() == 'file': # added incase the user wants to go back and add another file
+        while True:
+            add_file = input("\nWhat type of file do you want to add? (html/docx/txt/none): ").strip().lower()
+            if add_file == "none":
+                break
+            file_path = input("Enter the path to your file: ").strip()
+            
+            if not os.path.exists(file_path):
+                print("File not found. Try again.")
+                continue
 
-    assistant_rply = chat(user_input)
-    print("RAG:", assistant_rply, "\nAnything else needed? ")
+            if add_file == "html":
+                add_html(file_path)
+            elif add_file == "docx":
+                add_docx(file_path)
+            elif add_file == "txt":
+                add_txt(file_path)
+            else:
+                print("Type html, docx, txt, or none")     
+    else: # any time i typed none, the bot replied immediatly, had to add an else here to fix it
+        assistant_rply = chat(user_input)
+        print("RAG:", assistant_rply, "\nAnything else needed?")
+
