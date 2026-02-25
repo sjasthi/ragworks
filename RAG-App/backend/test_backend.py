@@ -12,12 +12,15 @@
 
 import requests
 
-# Test /query endpoint
-resp = requests.post(
-    "http://127.0.0.1:5000/query",
-    json={"input": "What is the RAG project about?"}
-)
-print("Query response:", resp.json())
+while True:
+    question = input("Ask your question (or type 'exit' to quit): ")
+    if question.lower() == "exit":
+        break
+    response = requests.post(
+        "http://127.0.0.1:5000/query",
+        json={"input": question}
+    )
+    print("RAG:", response.json()["response"])
 
 # Optional: test /upload endpoint
 # resp2 = requests.post(
