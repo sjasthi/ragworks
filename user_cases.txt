@@ -1,0 +1,117 @@
+
+
+============
+[Use Case1] Who Owns It?
+
+In many big organizations, people spend time in trying to figure out "Who owns <something>?". For example, <something> can be a computer or a software component or a document artifact or a project repo, etc.
+If you are given an excel file of such ownership data, how can we build a chat bot that answers the questions on ownership?
+
+For example, (1) Who owns project ABCD? (2) Who owns ABCD Project? (3) Who owns ABCD?  (4) What are all components owned by Jane Doe?  (5) Which team owns the most number of projects?
+
+So, the chat bot answers any question related to the ownership.
+
+
+[Use Case 2]  Do I have it? Did I cover it?
+
+People manage list of <somethings>. It can be a list of people (contacts) or list of movies they watched or books they read or placed they visited.
+
+They give that list (can be an excel having multile columns or a SQL file reflecting a DB table or Database connection) to the AI Agent.
+And then they ask the question to see whether they already covered it or not.
+
+For example, the questions can be:
+- Did I read "Roots" novel?  Is Ulysses in my list?
+- is Jane Doe in my contacts? What is the mobile of John Doe?
+
+
+================ FP 5 =========================
+- Word, PDF, URL, Text (Encode these)  (this is onetime activity)
+- Make non-GUI chat to work through python code  (this is everyday activity)
+This proves the round tirp (pushing the docs; getting the responses)
+
+All of you must be in sync and push the code to GITHUB main branch
+- COme up with a plan for FP6 to FP9
+
+================ FP 6 =========================
+As an admin, how can i upload the docs in web app?
+As an admin, how can I upload a brand new document (newer version) when an older version is already in the DB?
+---------> Spring 2026 schedule
+--------> Summer 2026 schedule  (How do I delete a document that I have RAGged before / which is sitting in ChromaDB?)
+As an user, what kinds of questions can I ask?
+As a developer, how do you validate / measure the accuracy of your chat bot?
+
+How does your UI for the chatbot looks like during FP Final? (design)
+
+
+localhost/RAGWorks  (it is meant for users to ask questions)
+
+localhost/RAGWorks/admin  (make the user name and password hardcoded in the code)
+---> Upload a new document for RAGging
+--> show all the documents (that have been RAGged)
+--> Show the date on which these documents got uploaded
+--> ChromaDB statistics / numbers
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+===================================  FP 3 and FP 4 ============================
+
+(Core Problem 1) Vectorization/Embeddings
+
+Given a CSV or Excel File, how do you RAG it and put it into Chroma DB?
+Given a MySQL file (which is MySQL table exported data into .sql format), how do you RAG it and put it into Chroma DB?
+
+(Core Problem 2) Responding to a Question based on RAG
+
+
+
+(phase 1) Installing ChromaDB on your machine (through python) 
+
+(phase 2): You use Python scripting to RAG a document (start with a text file) ---> Chroma DB
+           You use Python scripting to RAG a document (start with a doc file) ---> Chroma DB
+          You use Python scripting to RAG a document (URL / HTML Content) ---> Chroma DB
+
+
+
+(phase 3) Against each of these sources, without any User Interface, try to write a python script by hard coding a question (mimicing the chat) and getting the response.
+You must use OpenAI/LLMs for this purpose.
+
+(phase 4) Enhance the python script to ask the user for a question and try to get the response for the question
+
+
+===================== FP 5 and up ================================================
+
+How can we expose the FP4 as a web application?
+
+
+-----------------------------------
+Prompt: I want to build a RAG applicaiton based on a bunch of documents and expose Chat box on web to answer the questions based on these documents.
+Can you prepare implementation plan?
+
+We are going with Open SOurce / Free resources: ChromaDB, React/PHP,
+-----------------------------------
+
+(Core Problem 1 Variations)
+PDF
+PPTX
+Docx
+URL (HTML)
+URL (csv . text)
+
+==================== FP 6 ============================
+
+Exposing the python script as Flask Web UI
+
+
+
+
+
