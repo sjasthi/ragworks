@@ -20,6 +20,11 @@ End User Use Cases.
 To keep things simple, you application has just a text box and a LOGIN button.
 The LOGIN button will ask the user for a password/passcode. Once successful, you show the admin interaface to do the CRUD of RAG docs.
 
+This is just a suggestion. You have the option of going with a different tech stack.
+Front End: HTML/CSS/JS/JQuery/BootStrap
+Back End: PHP
+Database: MySQL, ChromaDB
+
 ============
 [Use Case1] Who Owns It?
 
