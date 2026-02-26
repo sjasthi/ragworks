@@ -17,6 +17,9 @@ End User Use Cases.
 4. When providing the response, you also need to outline the "sources" you used.
 5. You can also follow-up with a follow-on question.
 
+To keep things simple, you application has just a text box and a LOGIN button.
+The LOGIN button will ask the user for a password/passcode. Once successful, you show the admin interaface to do the CRUD of RAG docs.
+
 ============
 [Use Case1] Who Owns It?
 
