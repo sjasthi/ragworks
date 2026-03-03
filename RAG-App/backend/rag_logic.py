@@ -4,6 +4,8 @@ from openai import OpenAI, AuthenticationError
 from dotenv import load_dotenv
 from bs4 import BeautifulSoup
 from docx import Document
+from pypdf import PdfReader
+from pptx import Presentation
 import chromadb
 from chromadb.utils import embedding_functions
 
@@ -99,6 +101,51 @@ def add_txt(file_path):
         return "File already uploaded."
     with open(file_path, "r", encoding="utf-8") as f:
         text = f.read()
+    chunks = chunk_text(text)
+    file_name = os.path.splitext(os.path.basename(file_path))[0]
+    database.add(
+        documents=chunks,
+        ids=[f"{file_name}_chunk_{i}" for i in range(len(chunks))],
+        metadatas=[{"source": file_path} for _ in chunks]
+    )
+    return f"Added successfully. Collection size: {database.count()}"
+
+def add_pdf(file_path):
+    file_path = normalize_path(file_path)
+    if file_already_exists(file_path):
+        return "File already uploaded"
+    reader = PdfReader(file_path)
+    text = ""
+    # because its a pdf, i will have to extract the text a bit differently using pypdf
+    for page in reader.pages:
+        text += page.extract_text() + "\n"
+    chunks = chunk_text(text)
+    file_name = os.path.splitext(os.path.basename(file_path))[0]
+    database.add(
+        documents=chunks,
+        ids=[f"{file_name}_chunk_{i}" for i in range(len(chunks))],
+        metadatas=[{"source": file_path} for _ in chunks]
+    )
+    return f"Added successfully. Collection size: {database.count()}"
+
+def add_pptx(file_path):
+    file_path = normalize_path(file_path)
+    if file_already_exists(file_path):
+        return "File already uploaded"
+    # same deal as pdf, need python-pptx to extract the text, using the offical guide as reference
+    prs = Presentation(file_path)
+
+    # basically making an array of texts from the presentation
+    txt_runs = []
+    
+    for slide in prs.slides:
+        for shape in slide.shapes:
+            if not shape.has_text_frame:
+                continue
+            for paragraph in shape.text_frame.paragraphs:
+                for run in paragraph.runs:
+                    txt_runs.append(run.text)
+    text = " ".join(txt_runs) # joining all of it into a single string so it can be passed onto chunks
     chunks = chunk_text(text)
     file_name = os.path.splitext(os.path.basename(file_path))[0]
     database.add(

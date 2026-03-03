@@ -1,4 +1,29 @@
+Success Criteria:
 
+Two User Profiles: 1 Admin 2. User
+
+Admin Use Cases.
+
+1. RAG some docs (word, pdf, text, HTML, PPTX). - chromadb
+2. Admin must be able to see what has been RAGGed. (doc name, date uploaded, number of embeddings)  - you may need a simple MySQL database
+   Assume that Admin has anywhere from 10 to 32 documents
+3. Admin must be able to upload newer versions of the same document (you need to wipe out the existing data and replace it with new data) - chromadb
+
+
+End User Use Cases.
+1. Show a simple chat box
+2. Show some 3 suggestions at the bottom of the chat box (predefined prompts)
+3. When user asks a question, you provide the response.
+4. When providing the response, you also need to outline the "sources" you used.
+5. You can also follow-up with a follow-on question.
+
+To keep things simple, you application has just a text box and a LOGIN button.
+The LOGIN button will ask the user for a password/passcode. Once successful, you show the admin interaface to do the CRUD of RAG docs.
+
+This is just a suggestion. You have the option of going with a different tech stack.
+Front End: HTML/CSS/JS/JQuery/BootStrap
+Back End: PHP
+Database: MySQL, ChromaDB
 
 ============
 [Use Case1] Who Owns It?
