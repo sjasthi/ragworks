@@ -1,0 +1,33 @@
+body, html {
+    height: 100%;
+    margin: 0;
+}
+
+.login-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.login-box {
+    text-align: center;
+    background: white;
+    padding: 60px;
+    width: 300px;
+}
+
+.login-box input {
+    width: 100%;
+    padding: 10px;
+}
+
+.login-box button {
+    width: 100px;
+    padding: 10px;
+    background-color: lightgray;
+}
+
+.login-box button:hover {
+    background-color: darkgrey;
+}
