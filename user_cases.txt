@@ -25,6 +25,25 @@ Front End: HTML/CSS/JS/JQuery/BootStrap
 Back End: PHP
 Database: MySQL, ChromaDB
 
+========================
+
+[1] Support for Multiple Formats - You can create temporary formatted documents
+For example, you can take a text file and convert to PDF
+ (word, pdf, text, HTML, PPTX).
+
+[2] Collect some official metrostate documents (20 docs)
+
+[3] Prepare 50 typical questions visitors / students may have.
+
+[4] Build Web UI --> Ensure that newer versions can be uploaded (new should replace old)
+
+[5] Measure the accuracy of the responses for the 50 questions you selected.
+
+[6] Tweak the "chunk" size (and other parameters) to improve accuracy.
+I need to see a comparison table on how model parameters are influencing the accuracy of responses.
+
+
+
 ============
 [Use Case1] Who Owns It?
 
