@@ -8,6 +8,8 @@ from pypdf import PdfReader
 from pptx import Presentation
 import chromadb
 from chromadb.utils import embedding_functions
+from datetime import datetime, timezone
+import uuid
 
 # Load environment variables
 load_dotenv()
@@ -62,37 +64,71 @@ def chunk_text(text, chunk_size=800, overlap=150):
         start += chunk_size - overlap
     return chunks
 
+def now_iso():
+    return datetime.utcnow().isoformat()
+
 # --- File ingestion ---
-def add_html(file_path):
+def add_html(file_path, replace=False):
     file_path = normalize_path(file_path)
+
     if file_already_exists(file_path):
-        return "File already uploaded."
+        if not replace:
+            return "File already uploaded."
+        database.delete(where={"source": file_path})
+
     with open(file_path, "r", encoding="utf-8") as f:
         content = f.read()
+
     soup = BeautifulSoup(content, "html.parser")
     text = soup.get_text(separator=" ", strip=True)
+
     chunks = chunk_text(text)
+
     file_name = os.path.splitext(os.path.basename(file_path))[0]
+    upload_id = uuid.uuid4().hex[:8]
+    uploaded_at = now_iso()
+
     database.add(
         documents=chunks,
-        ids=[f"{file_name}_chunk_{i}" for i in range(len(chunks))],
-        metadatas=[{"source": file_path} for _ in chunks]
+        ids=[f"{file_name}_{upload_id}_chunk_{i}" for i in range(len(chunks))],
+        metadatas=[{
+            "source": file_path,
+            "display_name": os.path.basename(file_path),
+            "uploaded_at": uploaded_at,
+            "upload_id": upload_id
+        } for _ in chunks]
     )
+
     return f"Added successfully. Collection size: {database.count()}"
 
-def add_docx(file_path):
+def add_docx(file_path, replace=False):
     file_path = normalize_path(file_path)
+
     if file_already_exists(file_path):
-        return "File already uploaded."
+        if not replace:
+            return "File already uploaded."
+        database.delete(where={"source": file_path})
+
     doc = Document(file_path)
     text = "\n".join([p.text for p in doc.paragraphs])
+
     chunks = chunk_text(text)
+
     file_name = os.path.splitext(os.path.basename(file_path))[0]
+    upload_id = uuid.uuid4().hex[:8]
+    uploaded_at = now_iso()
+
     database.add(
         documents=chunks,
-        ids=[f"{file_name}_chunk_{i}" for i in range(len(chunks))],
-        metadatas=[{"source": file_path} for _ in chunks]
+        ids=[f"{file_name}_{upload_id}_chunk_{i}" for i in range(len(chunks))],
+        metadatas=[{
+            "source": file_path,
+            "display_name": os.path.basename(file_path),
+            "uploaded_at": uploaded_at,
+            "upload_id": upload_id
+        } for _ in chunks]
     )
+
     return f"Added successfully. Collection size: {database.count()}"
 
 def add_txt(file_path):
@@ -110,34 +146,51 @@ def add_txt(file_path):
     )
     return f"Added successfully. Collection size: {database.count()}"
 
-def add_pdf(file_path):
+def add_pdf(file_path, replace=False):
     file_path = normalize_path(file_path)
     if file_already_exists(file_path):
-        return "File already uploaded"
+        if not replace:
+            return "File already uploaded"
+        # admin replace: delete older chunks before adding new version
+        database.delete(where={"source": file_path})
+
     reader = PdfReader(file_path)
     text = ""
     # because its a pdf, i will have to extract the text a bit differently using pypdf
     for page in reader.pages:
-        text += page.extract_text() + "\n"
+        text += (page.extract_text() or "") + "\n"
+
     chunks = chunk_text(text)
     file_name = os.path.splitext(os.path.basename(file_path))[0]
+    upload_id = uuid.uuid4().hex[:8]
+    uploaded_at = now_iso()
+
     database.add(
         documents=chunks,
-        ids=[f"{file_name}_chunk_{i}" for i in range(len(chunks))],
-        metadatas=[{"source": file_path} for _ in chunks]
+        ids=[f"{file_name}_{upload_id}_chunk_{i}" for i in range(len(chunks))],
+        metadatas=[{
+            "source": file_path,
+            "display_name": os.path.basename(file_path),
+            "uploaded_at": uploaded_at,
+            "upload_id": upload_id
+        } for _ in chunks]
     )
     return f"Added successfully. Collection size: {database.count()}"
 
-def add_pptx(file_path):
+def add_pptx(file_path, replace=False):
     file_path = normalize_path(file_path)
     if file_already_exists(file_path):
-        return "File already uploaded"
+        if not replace:
+            return "File already uploaded"
+        # admin replace: delete older chunks before adding new version
+        database.delete(where={"source": file_path})
+
     # same deal as pdf, need python-pptx to extract the text, using the offical guide as reference
     prs = Presentation(file_path)
 
     # basically making an array of texts from the presentation
     txt_runs = []
-    
+
     for slide in prs.slides:
         for shape in slide.shapes:
             if not shape.has_text_frame:
@@ -145,24 +198,39 @@ def add_pptx(file_path):
             for paragraph in shape.text_frame.paragraphs:
                 for run in paragraph.runs:
                     txt_runs.append(run.text)
-    text = " ".join(txt_runs) # joining all of it into a single string so it can be passed onto chunks
+
+    text = " ".join(txt_runs)  # joining all of it into a single string so it can be passed onto chunks
     chunks = chunk_text(text)
+
     file_name = os.path.splitext(os.path.basename(file_path))[0]
+    upload_id = uuid.uuid4().hex[:8]
+    uploaded_at = now_iso()
+
     database.add(
         documents=chunks,
-        ids=[f"{file_name}_chunk_{i}" for i in range(len(chunks))],
-        metadatas=[{"source": file_path} for _ in chunks]
+        ids=[f"{file_name}_{upload_id}_chunk_{i}" for i in range(len(chunks))],
+        metadatas=[{
+            "source": file_path,
+            "display_name": os.path.basename(file_path),
+            "uploaded_at": uploaded_at,
+            "upload_id": upload_id
+        } for _ in chunks]
     )
     return f"Added successfully. Collection size: {database.count()}"
 
-def add_file(file_path, file_type):
+
+def add_file(file_path, file_type, replace=False):
     file_type = file_type.lower()
     if file_type == "html":
-        return add_html(file_path)
+        return add_html(file_path, replace=replace)
     elif file_type == "docx":
-        return add_docx(file_path)
+        return add_docx(file_path, replace=replace)
     elif file_type == "txt":
-        return add_txt(file_path)
+        return add_txt(file_path, replace=replace)
+    elif file_type == "pdf":
+        return add_pdf(file_path, replace=replace)
+    elif file_type == "pptx":
+        return add_pptx(file_path, replace=replace)
     else:
         return "Unsupported file type."
 
@@ -195,3 +263,62 @@ def run_rag(user_input):
         messages=messages,
     )
     return response.choices[0].message.content
+
+
+
+#--- List and delete files Admin Helpers---
+
+def list_documents():
+    # Pull all metadatas; then dedupe by source
+    data = database.get(include=["metadatas", "ids"])
+    metadatas = data.get("metadatas", [])
+
+    docs = {}
+    for meta in metadatas:
+        if not meta:
+            continue
+        source = meta.get("source")
+        if not source:
+            continue
+        # Keep the "latest" uploaded_at if duplicates exist
+        uploaded_at = meta.get("uploaded_at")
+        display_name = meta.get("display_name") or os.path.basename(source)
+
+        if source not in docs:
+            docs[source] = {
+                "source": source,
+                "display_name": display_name,
+                "uploaded_at": uploaded_at
+            }
+        else:
+            # If you uploaded same source again, keep max uploaded_at
+            if uploaded_at and (docs[source]["uploaded_at"] is None or uploaded_at > docs[source]["uploaded_at"]):
+                docs[source]["uploaded_at"] = uploaded_at
+
+    # return stable list sorted by uploaded_at desc (None last)
+    return sorted(
+        docs.values(),
+        key=lambda d: (d["uploaded_at"] is None, d["uploaded_at"]),
+        reverse=True
+    )
+
+def delete_document(source_path: str):
+    source_path = normalize_path(source_path)
+    # Delete all chunks with metadata source == source_path
+    database.delete(where={"source": source_path})
+    return {"deleted_source": source_path, "collection_size": database.count()}
+
+def chroma_stats():
+    docs = list_documents()
+    return {
+        "collection_name": "RAG_Work_test",
+        "total_chunks": database.count(),
+        "unique_documents": len(docs),
+    }
+
+# Admin upload newer version of file 
+def add_file_admin(file_path, file_type, replace=False):
+    file_path = normalize_path(file_path)
+    if replace and file_already_exists(file_path):
+        database.delete(where={"source": file_path})
+    return add_file(file_path, file_type)
