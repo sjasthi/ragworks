@@ -44,7 +44,6 @@ Version: 3/16/26
 
 
 Sharing a central set of data one will need to export both the MySQL data and ChromaDB data
-To obatain the MySQL data
     1. Export 
         Go to the MySql server 
         click data export 
