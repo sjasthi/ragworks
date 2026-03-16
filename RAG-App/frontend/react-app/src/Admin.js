@@ -52,23 +52,7 @@ const Admin = ({ logoutAction }) => {
     loadDocs();
   }, []);
 
-  /*const uploadDoc = async () => {
-    const res = await fetch(`${API}/admin/upload`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        file_path: filePath.trim().replace(/^['"]|['"]$/g, ""),
-        file_type: fileType,
-        replace,
-      }),
-    });
-    const data = await res.json();
-    alert(data.result || data.error || "Done");
-    setFilePath("");
-    await loadStats();
-    await loadDocs();
-  };
-*/
+
 const uploadDoc = async () => {
   try {
     const cleanedPath = filePath.trim().replace(/^['"]|['"]$/g, "");
@@ -123,6 +107,10 @@ const uploadDoc = async () => {
     }
   };
 
+  // HTML structure of the admin page
+  // UI developments occur here, but all backend interactions are handled by the functions defined above.
+  // Update visuals below as needed, but keep backend calls in their respective functions to maintain separation of concerns. 
+  // Styles are in Admin.css.
   return (
     <div className="admin-page">
       <div className="admin-header">

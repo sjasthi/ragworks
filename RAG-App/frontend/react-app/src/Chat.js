@@ -22,6 +22,11 @@ function Chat() {
         }
     };
 
+
+    // HTML structure of the chat page
+    // UI developments occur here, but all backend interactions are handled by the functions defined above.
+    // Update visuals below as needed, but keep backend calls in their respective functions to maintain separation of concerns. 
+    // Styles are in Admin.css.
     return (
         <div className="chat-box">
             <h2>AI Chat</h2>
