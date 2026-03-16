@@ -12,15 +12,39 @@ const Admin = ({ logoutAction }) => {
   const [replace, setReplace] = useState(false);
 
   const loadDocs = async () => {
-    const res = await fetch(`${API}/admin/documents`);
-    const data = await res.json();
-    setDocs(data.documents || []);
+    try {
+      const res = await fetch(`${API}/admin/documents`);
+
+      if (!res.ok) {
+        const text = await res.text();
+        throw new Error(`Documents request failed: ${res.status} ${res.statusText} - ${text}`);
+      }
+
+      const data = await res.json();
+      setDocs(data.documents || []);
+    } catch (err) {
+      console.error("loadDocs error:", err);
+      alert(`Could not load documents: ${err.message}`);
+      setDocs([]);
+    }
   };
 
   const loadStats = async () => {
-    const res = await fetch(`${API}/admin/stats`);
-    const data = await res.json();
-    setStats(data);
+    try {
+      const res = await fetch(`${API}/admin/stats`);
+
+      if (!res.ok) {
+        const text = await res.text();
+        throw new Error(`Stats request failed: ${res.status} ${res.statusText} - ${text}`);
+      }
+
+      const data = await res.json();
+      setStats(data);
+    } catch (err) {
+      console.error("loadStats error:", err);
+      alert(`Could not load stats: ${err.message}`);
+      setStats(null);
+    }
   };
 
   useEffect(() => {
@@ -28,7 +52,7 @@ const Admin = ({ logoutAction }) => {
     loadDocs();
   }, []);
 
-  const uploadDoc = async () => {
+  /*const uploadDoc = async () => {
     const res = await fetch(`${API}/admin/upload`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -44,19 +68,59 @@ const Admin = ({ logoutAction }) => {
     await loadStats();
     await loadDocs();
   };
+*/
+const uploadDoc = async () => {
+  try {
+    const cleanedPath = filePath.trim().replace(/^['"]|['"]$/g, "");
 
+    const res = await fetch(`${API}/admin/upload`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        file_path: cleanedPath,
+        file_type: fileType,
+        replace,
+      }),
+    });
+
+    if (!res.ok) {
+      const text = await res.text();
+      throw new Error(`Upload failed: ${res.status} ${res.statusText} - ${text}`);
+    }
+
+    const data = await res.json();
+    alert(data.result || data.error || "Done");
+    setFilePath("");
+    await loadStats();
+    await loadDocs();
+  } catch (err) {
+    console.error("Upload error:", err);
+    alert(`Upload failed: ${err.message}`);
+  }
+};
   const deleteDoc = async (source) => {
     if (!window.confirm("Delete this document from ChromaDB?")) return;
 
-    const res = await fetch(`${API}/admin/documents`, {
-      method: "DELETE",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ source }),
-    });
-    const data = await res.json();
-    alert(`Deleted. Collection size: ${data.collection_size}`);
-    await loadStats();
-    await loadDocs();
+    try {
+      const res = await fetch(`${API}/admin/documents`, {
+        method: "DELETE",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ source }),
+      });
+
+      if (!res.ok) {
+        const text = await res.text();
+        throw new Error(`Delete failed: ${res.status} ${res.statusText} - ${text}`);
+      }
+
+      const data = await res.json();
+      alert(`Deleted. Collection size: ${data.collection_size}`);
+      await loadStats();
+      await loadDocs();
+    } catch (err) {
+      console.error("Delete error:", err);
+      alert(`Delete failed: ${err.message}`);
+    }
   };
 
   return (

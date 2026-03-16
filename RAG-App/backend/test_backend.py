@@ -23,8 +23,8 @@ while True:
     print("RAG:", response.json()["response"])
 
 # Optional: test /upload endpoint
-# resp2 = requests.post(
-#     "http://127.0.0.1:5000/upload",
-#     json={"file_path": "C:/path/to/file.docx", "file_type": "docx"}
-# )
-# print("Upload response:", resp2.json())
+resp2 = requests.post(
+     "http://127.0.0.1:5000/upload",
+     json={"file_path": "C:/Users/Eli/Downloads/Spring 2026 SEM/ICS 499 Software Engineer Capstone/Local Rag project/InfluencerData2.docx", "file_type": "docx"}
+ )
+print("Upload response:", resp2.json())

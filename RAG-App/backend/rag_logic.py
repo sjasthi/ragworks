@@ -11,6 +11,9 @@ from chromadb.utils import embedding_functions
 from datetime import datetime, timezone
 import uuid
 
+#SQL Integration
+from database import get_connection
+
 # Load environment variables
 load_dotenv()
 
@@ -65,10 +68,26 @@ def chunk_text(text, chunk_size=800, overlap=150):
     return chunks
 
 def now_iso():
-    return datetime.utcnow().isoformat()
+    return datetime.now(timezone.utc).isoformat()
+
+#MY SQL INTEGRATION Helper to log user queries and responses
+def save_file_to_sql(file_path, file_type, uploaded_by=None):
+    conn = get_connection()
+    cursor = conn.cursor()
+
+    filename = os.path.basename(file_path)
+
+    cursor.execute("""
+        INSERT INTO files (filename, file_type, file_path, uploaded_by)
+        VALUES (%s, %s, %s, %s)
+    """, (filename, file_type, file_path, uploaded_by))
+
+    conn.commit()
+    cursor.close()
+    conn.close()
 
 # --- File ingestion ---
-def add_html(file_path, replace=False):
+def add_html(file_path, replace=False, uploaded_by=None):
     file_path = normalize_path(file_path)
 
     if file_already_exists(file_path):
@@ -98,10 +117,12 @@ def add_html(file_path, replace=False):
             "upload_id": upload_id
         } for _ in chunks]
     )
-
+    save_file_to_sql(file_path, "html", uploaded_by)
     return f"Added successfully. Collection size: {database.count()}"
 
-def add_docx(file_path, replace=False):
+
+#DocX is similar to HTML in that it needs a special library to extract the text.
+def add_docx(file_path, replace=False, uploaded_by=None):
     file_path = normalize_path(file_path)
 
     if file_already_exists(file_path):
@@ -128,25 +149,42 @@ def add_docx(file_path, replace=False):
             "upload_id": upload_id
         } for _ in chunks]
     )
-
+    save_file_to_sql(file_path, "docx", uploaded_by)
     return f"Added successfully. Collection size: {database.count()}"
 
-def add_txt(file_path):
+#TXT file is the simplest, just read and chunk without needing a special library
+def add_txt(file_path, replace=False, uploaded_by=None):
     file_path = normalize_path(file_path)
+
     if file_already_exists(file_path):
-        return "File already uploaded."
+        if not replace:
+            return "File already uploaded."
+        database.delete(where={"source": file_path})
+
     with open(file_path, "r", encoding="utf-8") as f:
         text = f.read()
+
     chunks = chunk_text(text)
+
     file_name = os.path.splitext(os.path.basename(file_path))[0]
+    upload_id = uuid.uuid4().hex[:8]
+    uploaded_at = now_iso()
+
     database.add(
         documents=chunks,
-        ids=[f"{file_name}_chunk_{i}" for i in range(len(chunks))],
-        metadatas=[{"source": file_path} for _ in chunks]
+        ids=[f"{file_name}_{upload_id}_chunk_{i}" for i in range(len(chunks))],
+        metadatas=[{
+            "source": file_path,
+            "display_name": os.path.basename(file_path),
+            "uploaded_at": uploaded_at,
+            "upload_id": upload_id
+        } for _ in chunks]
     )
+    save_file_to_sql(file_path, "txt", uploaded_by)
     return f"Added successfully. Collection size: {database.count()}"
 
-def add_pdf(file_path, replace=False):
+#PDF and PPTX are a bit more complex, so they have their own functions. 
+def add_pdf(file_path, replace=False, uploaded_by=None):
     file_path = normalize_path(file_path)
     if file_already_exists(file_path):
         if not replace:
@@ -175,9 +213,12 @@ def add_pdf(file_path, replace=False):
             "upload_id": upload_id
         } for _ in chunks]
     )
+    save_file_to_sql(file_path, "pdf", uploaded_by)
     return f"Added successfully. Collection size: {database.count()}"
 
-def add_pptx(file_path, replace=False):
+
+# PPTX is similar to PDF in terms of needing a special library to extract text, but the structure is different so it gets its own function as well.
+def add_pptx(file_path, replace=False, uploaded_by=None):
     file_path = normalize_path(file_path)
     if file_already_exists(file_path):
         if not replace:
@@ -216,21 +257,22 @@ def add_pptx(file_path, replace=False):
             "upload_id": upload_id
         } for _ in chunks]
     )
+    save_file_to_sql(file_path, "pptx", uploaded_by)
     return f"Added successfully. Collection size: {database.count()}"
 
 
-def add_file(file_path, file_type, replace=False):
+def add_file(file_path, file_type, replace=False, uploaded_by=None):
     file_type = file_type.lower()
     if file_type == "html":
-        return add_html(file_path, replace=replace)
+        return add_html(file_path, replace=replace, uploaded_by=uploaded_by)
     elif file_type == "docx":
-        return add_docx(file_path, replace=replace)
+        return add_docx(file_path, replace=replace, uploaded_by=uploaded_by)
     elif file_type == "txt":
-        return add_txt(file_path, replace=replace)
+        return add_txt(file_path, replace=replace, uploaded_by=uploaded_by)
     elif file_type == "pdf":
-        return add_pdf(file_path, replace=replace)
+        return add_pdf(file_path, replace=replace, uploaded_by=uploaded_by)
     elif file_type == "pptx":
-        return add_pptx(file_path, replace=replace)
+        return add_pptx(file_path, replace=replace, uploaded_by=uploaded_by)
     else:
         return "Unsupported file type."
 
@@ -270,7 +312,7 @@ def run_rag(user_input):
 
 def list_documents():
     # Pull all metadatas; then dedupe by source
-    data = database.get(include=["metadatas", "ids"])
+    data = database.get(include=["metadatas"])
     metadatas = data.get("metadatas", [])
 
     docs = {}
@@ -322,3 +364,5 @@ def add_file_admin(file_path, file_type, replace=False):
     if replace and file_already_exists(file_path):
         database.delete(where={"source": file_path})
     return add_file(file_path, file_type)
+
+
