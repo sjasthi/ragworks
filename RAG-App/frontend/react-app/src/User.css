@@ -1,0 +1,70 @@
+.user-page {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    flex-direction: column;
+}
+
+.user-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background-color: #5b3281;
+    color: white;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.user-header h2 {
+    margin: 0;
+    font-size: 24px;
+}
+
+.logout-btn {
+    padding: 10px 20px;
+    background-color: #c2c2bf;
+    color: rgb(32, 3, 3);
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.1s;
+}
+
+.logout-btn:hover {
+    background-color: #a9a9a9;
+    transform: scale(1.05);
+}
+
+.user-content {
+    flex: 1;
+    padding: 30px 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.welcome-section {
+    background-color: white;
+    padding: 25px 20px;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+    text-align: center;
+}
+
+.welcome-section h3 {
+    margin-top: 0;
+    color: #1f2937;
+    margin-bottom: 15px;
+}
+
+.welcome-section p {
+    color: #374151;
+    font-size: 15px;
+}
+
+.chat-box {
+    background-color: white;
+    padding: 25px 20px;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+}

@@ -29,7 +29,6 @@ const App = () => {
     return (
       <div>
         <Admin logoutAction={Logout} />
-        <Chat />
       </div>
     );
   }

@@ -135,6 +135,7 @@ const uploadDoc = async () => {
         <h3>Upload Document</h3>
         <div className="admin-upload">
           <input
+            type="text"
             placeholder="Enter full file path (e.g. C:\...\file.pdf)"
             value={filePath}
             onChange={(e) => setFilePath(e.target.value)}
@@ -160,7 +161,12 @@ const uploadDoc = async () => {
 
       <section>
         <h3>Documents in ChromaDB</h3>
-        <button onClick={() => { loadStats(); loadDocs(); }}>Refresh</button>
+        <button 
+          className="refresh-btn"
+          onClick={() => { loadStats(); loadDocs(); }}
+        >
+            Refresh
+        </button>
 
         <table style={{ width: "100%", marginTop: 10 }}>
           <thead>

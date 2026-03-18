@@ -1,0 +1,133 @@
+.admin-page {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    min-height: 100vh;
+    background-color: #f3f4f6;
+    padding: 20px;
+}
+
+.admin-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 25px;
+    background-color: #ad3b1f;
+    color: white;
+    border-radius: 8px;
+}
+
+.admin-header h2 {
+    margin: 0;
+}
+
+.admin-header button {
+    padding: 8px 16px;
+    background-color: #cfcfcf;
+    color: rgb(0, 0, 0);
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.admin-header button:hover {
+    background-color: #a1a1a1;
+}
+
+.admin-upload {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.admin-upload input[type="text"] {
+    flex: 1 1 300px;
+    padding: 8px 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-family: monospace;
+}
+
+.admin-upload select {
+    padding: 8px 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+.admin-upload label {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 14px;
+}
+
+.admin-upload button {
+    padding: 8px 16px;
+    background-color: #016dc0;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.admin-upload button:hover {
+    background-color: #014d8f;
+}
+
+.docs-section table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+.docs-section th, .docs-section td {
+    padding: 8px;
+    text-align: left;
+}
+
+.docs-section thead {
+    background-color: #e5e7eb;
+}
+
+.docs-section tbody tr:nth-child(even) {
+    background-color: #f3f4f6;
+}
+
+.docs-section tbody tr:hover {
+    background-color: #e0f2fe;
+}
+
+.docs-section button {
+    padding: 4px 8px;
+    border-radius: 5px;
+    border: none;
+    background-color: #ef4444;
+    color: white;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.docs-section button:hover {
+    background-color: #dc2626;
+}
+
+.refresh-btn {
+    margin-bottom: 10px;
+    padding: 6px 12px;
+    border: none;
+    border-radius: 6px;
+    background-color: #016dc0;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+.refresh-btn:hover {
+    background-color: #014d8f;
+}
