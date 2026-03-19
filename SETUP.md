@@ -19,7 +19,7 @@ Version: 3/16/26
         You will update this file with your SQL information as shown in the example.
         Again NEVER COMMIT .env 
 
-    5. Running the application
+    5. Running the application (To better understand flow. Skip to #7 for windows shortcut)
         Open a terminal in your IDE
         Navigate(cd) to the backend directory with the app.py file in it and run command "python app.py"
         Flask will start a local dev server 
@@ -32,18 +32,24 @@ Version: 3/16/26
         This will start the React dev server
         A web page with the current interface will open
 
-    7. Login using our shared credentials for either Admin or User 
+    7. Shortcut Server Startup (FAST)
+        Run command: .\start_rag.bat in the RAG-App directory
+        Windows will automatically start both Flask and React
+        Close terminal windows and web page to end process
+    
+
+    8. Login using our shared credentials for either Admin or User 
         As an admin you can upload documents from your local computer using file paths
         To safely ensure this works please remove quotes from file path.
         As a user you can ask the API questions regarding the RAGGED documents
 
-    8. Closing the flask server and react interface
+    9. Closing the flask server and react interface
         CTR + C in both terminals will shut them down. 
         You can check you Ragged documents in SQL workbench to verify by using "SELECT * FROM files;"
         Highlight and run this command alone, it should show files processed by the system.
 
-
 Sharing a central set of data one will need to export both the MySQL data and ChromaDB data
+
     1. Export 
         Go to the MySql server 
         click data export 
