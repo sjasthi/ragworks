@@ -114,24 +114,35 @@ const uploadDoc = async () => {
   return (
     <div className="admin-page">
       <div className="admin-header">
-        <h2>Admin</h2>
+        <h2>Admin Dashboard</h2>
         <button onClick={logoutAction}>Logout</button>
       </div>
 
-      <section>
+      {/* Stats */}
+      <div className="admin-card">
         <h3>ChromaDB Stats</h3>
         {stats ? (
-          <ul>
-            <li>Collection: {stats.collection_name}</li>
-            <li>Unique documents: {stats.unique_documents}</li>
-            <li>Total chunks: {stats.total_chunks}</li>
-          </ul>
+          <div className="stats-grid">
+            <div className="stat-item">
+              <div className="stat-label">Collection</div>
+              <div className="stat-name">{stats.collection_name}</div>
+            </div>
+            <div className="stat-item">
+              <div className="stat-label">Unique Documents</div>
+              <div className="stat-value">{stats.unique_documents}</div>
+            </div>
+            <div className="stat-item">
+              <div className="stat-label">Total Chunks</div>
+              <div className="stat-value">{stats.total_chunks}</div>
+            </div>
+          </div>
         ) : (
-          <p>Loading stats…</p>
+          <p style={{ color: "var(--muted)", margin: 0 }}>Loading stats…</p>
         )}
-      </section>
+      </div>
 
-      <section>
+      {/* Upload */}
+      <div className="admin-card">
         <h3>Upload Document</h3>
         <div className="admin-upload">
           <input
@@ -147,7 +158,7 @@ const uploadDoc = async () => {
             <option value="txt">txt</option>
             <option value="html">html</option>
           </select>
-          <label style={{ display: "flex", gap: 6, alignItems: "center" }}>
+          <label>
             <input
               type="checkbox"
               checked={replace}
@@ -155,47 +166,46 @@ const uploadDoc = async () => {
             />
             Replace if exists
           </label>
-          <button onClick={uploadDoc}>Upload</button>
+          <button className="btn-primary" onClick={uploadDoc}>Upload</button>
         </div>
-      </section>
+      </div>
 
-      <section>
+      {/* Documents table */}
+      <div className="admin-card">
         <h3>Documents in ChromaDB</h3>
-        <button 
-          className="refresh-btn"
-          onClick={() => { loadStats(); loadDocs(); }}
-        >
-            Refresh
-        </button>
-
-        <table style={{ width: "100%", marginTop: 10 }}>
+        <div className="docs-toolbar">
+          <button className="refresh-btn" onClick={() => { loadStats(); loadDocs(); }}>
+            ↻ Refresh
+          </button>
+        </div>
+        <table className="docs-table">
           <thead>
             <tr>
-              <th align="left">Name</th>
-              <th align="left">Uploaded</th>
-              <th align="left">Source Path</th>
+              <th>Name</th>
+              <th>Uploaded</th>
+              <th>Source Path</th>
               <th></th>
             </tr>
           </thead>
           <tbody>
             {docs.map((d) => (
               <tr key={d.source}>
-                <td>{d.display_name}</td>
-                <td>{d.uploaded_at || "(unknown)"}</td>
-                <td style={{ fontFamily: "monospace", fontSize: 12 }}>{d.source}</td>
+                <td className="doc-name">{d.display_name}</td>
+                <td>{d.uploaded_at ? new Date(d.uploaded_at).toLocaleString() : "—"}</td>
+                <td><span className="doc-path">{d.source}</span></td>
                 <td>
-                  <button onClick={() => deleteDoc(d.source)}>Delete</button>
+                  <button className="btn-danger" onClick={() => deleteDoc(d.source)}>Delete</button>
                 </td>
               </tr>
             ))}
             {docs.length === 0 && (
-              <tr>
+              <tr className="empty-row">
                 <td colSpan={4}>No documents found.</td>
               </tr>
             )}
           </tbody>
         </table>
-      </section>
+      </div>
     </div>
   );
 };
