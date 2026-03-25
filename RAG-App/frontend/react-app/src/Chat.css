@@ -19,7 +19,7 @@
 
 /* Input field */
 .chat-box input[type="text"] {
-    width: 95%;
+    width: 100%;
     padding: 12px 16px;
     margin-bottom: 12px;
     border: 1px solid #ccc;
