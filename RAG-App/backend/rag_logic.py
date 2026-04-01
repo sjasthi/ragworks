@@ -48,6 +48,9 @@ database = chroma_client.get_or_create_collection(
     embedding_function=embedding_function
 )
 
+# checking in terminal for the eval_questions to see how many chunks are in the database before running the evaluation
+print("CHUNKS:", database.count())
+
 # --- Helper Functions ---
 
 def normalize_path(path):
@@ -276,20 +279,36 @@ def add_file(file_path, file_type, replace=False, uploaded_by=None):
     else:
         return "Unsupported file type."
 
-# --- Retrieval ---
-def get_context(query, k=3):
+#Better version of get_contextto return the retrieved docs in a structured way so that run_rag can pass them to the evaluation function and we can see not just the answer but also what sources were retrieved for each question in the eval set. This is important for diagnosing whether low scores are due to retrieval failures or generation failures. Also added parameters for top_k, temperature, and top_p to run_rag so that we can test different settings in the eval.
+def get_context(query, k=3, return_docs=False):
     results = database.query(
         query_texts=[query],
         n_results=k
     )
+
     documents = results["documents"][0]
     metadatas = results["metadatas"][0]
-    context_blocks = [f"[Source: {meta['source']}]\n{doc}" for doc, meta in zip(documents, metadatas)]
+
+    retrieved_docs = []
+    for doc, meta in zip(documents, metadatas):
+        retrieved_docs.append({
+            "content": doc,
+            "source": meta.get("source", "unknown")
+        })
+
+    if return_docs:
+        return retrieved_docs
+
+    context_blocks = [
+        f"[Source: {item['source']}]\n{item['content']}"
+        for item in retrieved_docs
+    ]
     return "\n\n".join(context_blocks)
 
-# --- Chat function ---
+#Original Run RAG function that just returns the generated answer without the retrieved sources. 
 def run_rag(user_input):
     context = get_context(user_input)
+
     messages = [
         {
             "role": "system",
@@ -300,12 +319,44 @@ def run_rag(user_input):
             "content": f"Context:\n{context}\n\nQuestion: {user_input}"
         }
     ]
+
     response = client.chat.completions.create(
         model="gpt-4o-mini",
         messages=messages,
     )
+
     return response.choices[0].message.content
 
+#Better Run Rag version that returns both the generated answer and the retrieved documents/sources in a structured way for better evaluation and diagnostics.
+def run_rag_eval(user_input, top_k=3, temperature=0.0, top_p=1.0):
+    retrieved_docs = get_context(user_input, k=top_k, return_docs=True)
+
+    context = "\n\n".join(
+        [f"[Source: {doc['source']}]\n{doc['content']}" for doc in retrieved_docs]
+    )
+
+    messages = [
+        {
+            "role": "system",
+            "content": "Answer the question using ONLY the provided context. If the answer is not in the context, say you do not know. When possible, mention the source used."
+        },
+        {
+            "role": "user",
+            "content": f"Context:\n{context}\n\nQuestion: {user_input}"
+        }
+    ]
+
+    response = client.chat.completions.create(
+        model="gpt-4o-mini",
+        messages=messages,
+        temperature=temperature,
+        top_p=top_p
+    )
+
+    return {
+        "answer": response.choices[0].message.content,
+        "retrieved_docs": retrieved_docs
+    }
 
 
 #--- List and delete files Admin Helpers---
@@ -364,5 +415,7 @@ def add_file_admin(file_path, file_type, replace=False):
     if replace and file_already_exists(file_path):
         database.delete(where={"source": file_path})
     return add_file(file_path, file_type)
+
+  
 
 
