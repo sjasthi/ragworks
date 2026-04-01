@@ -13,6 +13,11 @@ Version: 3/16/26
         Connect to your local SQL server (defualts are fine for setting, "root" user but set your own password)
         Open the database/rag_app.sql file ive provided and run it on your machine
         This will create rag_app, users, files and rag_logs 
+        (if sql server not on) 
+        Windows Key + R 
+        type: services.msc 
+        search for your sql server Example: "MySQL80"
+        right clicj and press start
 
     4. Update .env
         Rememeber the file that doesnt get pushed to github with your API KEY? 

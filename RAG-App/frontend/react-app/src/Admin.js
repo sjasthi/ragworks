@@ -106,6 +106,47 @@ const uploadDoc = async () => {
       alert(`Delete failed: ${err.message}`);
     }
   };
+  // Update documents 
+const [updateSource, setUpdateSource] = useState(null);
+
+const startUpdate = (source) => {
+  setUpdateSource(source);
+  document.getElementById("updateFileInput").click();
+};
+
+const handleUpdateFile = async (e) => {
+  const file = e.target.files[0];
+
+  if (!file || !updateSource) return;
+
+  const formData = new FormData();
+  formData.append("old_source", updateSource);
+  formData.append("file", file);
+
+  try {
+    const res = await fetch(`${API}/admin/update-document`, {
+      method: "POST",
+      body: formData,
+    });
+
+    const data = await res.json();
+
+    if (!res.ok) {
+      throw new Error(data.error || "Update failed");
+    }
+
+    alert("Document updated successfully");
+
+    setUpdateSource(null);
+    e.target.value = "";
+
+    await loadStats();
+    await loadDocs();
+  } catch (err) {
+    console.error("Update error:", err);
+    alert(`Update failed: ${err.message}`);
+  }
+};
 
   // HTML structure of the admin page
   // UI developments occur here, but all backend interactions are handled by the functions defined above.
@@ -170,6 +211,14 @@ const uploadDoc = async () => {
         </div>
       </div>
 
+      {/* Hidden file input for updates */}
+      <input
+        type="file"
+        id="updateFileInput"
+        style={{ display: "none" }}
+        onChange={handleUpdateFile}
+      />
+
       {/* Documents table */}
       <div className="admin-card">
         <h3>Documents in ChromaDB</h3>
@@ -195,6 +244,7 @@ const uploadDoc = async () => {
                 <td><span className="doc-path">{d.source}</span></td>
                 <td>
                   <button className="btn-danger" onClick={() => deleteDoc(d.source)}>Delete</button>
+                  <button className="btn-update" onClick={() => startUpdate(d.source)}>Update</button>
                 </td>
               </tr>
             ))}
@@ -209,5 +259,4 @@ const uploadDoc = async () => {
     </div>
   );
 };
-
 export default Admin;

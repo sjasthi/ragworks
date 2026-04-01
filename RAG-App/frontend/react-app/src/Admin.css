@@ -296,6 +296,29 @@
   color: rgb(255, 255, 255);
 }
 
+.btn-update {
+  padding: 5px 12px;   /* match delete button */
+  border-radius: 6px;
+  border: none;
+  background-color: #4caf50;
+  color: white;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 600;
+  transition: background 0.15s;
+  font-family: var(--sans);
+}
+
+.btn-update:hover {
+  background-color: #3e8e41;
+}
+
+.doc-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+}
+
 .empty-row td {
   color: var(--muted);
   text-align: center;
