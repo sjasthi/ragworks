@@ -312,7 +312,8 @@ def run_rag(user_input):
     messages = [
         {
             "role": "system",
-            "content": "Answer the question using ONLY the provided context. If not in context, say you do not know."
+            "content": "Answer the question using ONLY the provided context. If not in context, say you do not know and do not include the source."
+            "If the answer is found, include the source at the end on a seperate line in the format (Source: filename)."
         },
         {
             "role": "user",
@@ -331,8 +332,10 @@ def run_rag(user_input):
 def run_rag_eval(user_input, top_k=3, temperature=0.0, top_p=1.0):
     retrieved_docs = get_context(user_input, k=top_k, return_docs=True)
 
+    #Use only the basename file not the path in the source when constructing the context for the LLM making it cleaner for later output
     context = "\n\n".join(
-        [f"[Source: {doc['source']}]\n{doc['content']}" for doc in retrieved_docs]
+        [f"[Source: {os.path.basename(doc['source'])}]\n{doc['content']}" 
+        for doc in retrieved_docs]
     )
 
     messages = [

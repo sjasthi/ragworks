@@ -1,22 +1,29 @@
 {
     "parameters": {
-        "top_k": 3,
-        "temperature": 0.0,
+        "top_k": 8,
+        "temperature": 0.2,
         "top_p": 1.0
     },
-    "total_questions": 34,
-    "answer_accuracy": 0.7352941176470589,
-    "source_accuracy": 0.9117647058823529,
+    "total_questions": 33,
+    "answer_accuracy": 0.8787878787878788,
+    "source_accuracy": 0.9696969696969697,
     "results": [
         {
             "question": "What determines undergraduate academic standing?",
             "target_keywords": [
                 "gpa",
-                "academic standing"
+                "academic standing",
+                "2.0",
+                "completion rate"
             ],
-            "generated_answer": "Undergraduate academic standing is determined by maintaining a cumulative Metropolitan State University GPA of at least 2.0 and a cumulative completion rate that meets the minimum level required for Satisfactory Academic Progress, which is necessary for receiving financial aid. This is outlined in the Academic Standing Review Procedure #205.",
+            "generated_answer": "Undergraduate academic standing is determined by two main criteria: \n\n1. A cumulative Grade Point Average (GPA) of at least 2.0.\n2. A cumulative completion rate that meets the minimum level required to maintain Satisfactory Academic Progress for the purpose of receiving financial aid.\n\nThese standards are established in the Academic Standing Review Procedure #205 (Source: C:\\Users\\ahh28\\OneDrive\\Documents\\SpringSem2026\\Capstone\\metro_docs\\2050_Undergrad_Academic_Standing.pdf).",
             "target_source": "2050_Undergrad_Academic_Standing.pdf",
             "retrieved_sources": [
+                "2050_Undergrad_Academic_Standing.pdf",
+                "2050_Undergrad_Academic_Standing.pdf",
+                "2050_Undergrad_Academic_Standing.pdf",
+                "2050_Undergrad_Academic_Standing.pdf",
+                "2050_Undergrad_Academic_Standing.pdf",
                 "2050_Undergrad_Academic_Standing.pdf",
                 "2050_Undergrad_Academic_Standing.pdf",
                 "2050_Undergrad_Academic_Standing.pdf"
@@ -30,25 +37,36 @@
                 "probation",
                 "gpa"
             ],
-            "generated_answer": "If a student is placed on academic probation, the Academic Standing Review Procedure #205 defines a transition plan that will \u201chold harmless\u201d those students under previous versions of Metropolitan State University Policy 2050. This means that there are specific guidelines in place to support students who are on academic probation. (Source: C:\\Users\\ahh28\\OneDrive\\Documents\\SpringSem2026\\Capstone\\metro_docs\\2050_Undergrad_Academic_Standing.pdf)",
-            "target_source": "2050_Undergrad_Academic_Standing.pdf",
+            "generated_answer": "If a student is placed on academic probation, the Academic Standing Review Procedure #205 defines a transition plan that will \u201chold harmless\u201d students placed on academic probation or dismissed for academic reasons under previous versions of Metropolitan State University Policy 2050. This means that there are specific guidelines in place to support students in this situation. (Source: C:\\Users\\ahh28\\OneDrive\\Documents\\SpringSem2026\\Capstone\\metro_docs\\2050_Undergrad_Academic_Standing.pdf)",
+            "target_source": "Academic Standing Review Procedure.pdf",
             "retrieved_sources": [
                 "2050_Undergrad_Academic_Standing.pdf",
                 "2050_Undergrad_Academic_Standing.pdf",
-                "2050_Undergrad_Academic_Standing.pdf"
+                "2050_Undergrad_Academic_Standing.pdf",
+                "2050_Undergrad_Academic_Standing.pdf",
+                "209_Academic_Appeals_Procedure.pdf",
+                "2050_Undergrad_Academic_Standing.pdf",
+                "2259_Attendance_and_Non-Attendance_Reporting.pdf",
+                "209_Academic_Appeals_Procedure.pdf"
             ],
-            "answer_score": 0,
-            "source_score": 1
+            "answer_score": 1,
+            "source_score": 0
         },
         {
             "question": "What grading scale is used for letter grades?",
             "target_keywords": [
                 "grading scale",
-                "letter grades"
+                "letter grades",
+                "grade points"
             ],
-            "generated_answer": "The grading scale used for letter grades is as follows:\n\n- A: Excellent - 4.0\n- A-: 3.67\n- B+: 3.33\n- B: Good - 3.0\n- B-: 2.67\n- C+: 2.33\n- C: Adequate - 2.0\n- C-: 1.67\n- D: Partially adequate - 1.0\n- F: No grade or credit - 0.0\n\n(Note: D work cannot be used to meet requirements for undergraduate program majors or prerequisites, and work with a grade of less than B- cannot be used to meet graduate program requirements.) This information is sourced from the grading policy document.",
+            "generated_answer": "The grading scale used for letter grades is as follows:\n\n- A: Excellent - 4.0\n- A-: 3.67\n- B+: 3.33\n- B: Good - 3.0\n- B-: 2.67\n- C+: 2.33\n- C: Adequate - 2.0\n- C-: 1.67\n- D: Partially adequate - 1.0\n- F: No grade or credit - 0.0\n\n(Note: D work cannot be used to meet requirements for undergraduate program majors or prerequisites, and work with a grade of less than B- cannot be used to meet graduate program requirements.) This information is sourced from the provided grading policy document.",
             "target_source": "2080_Grading_Policy.pdf",
             "retrieved_sources": [
+                "2080_Grading_Policy.pdf",
+                "2080_Grading_Policy.pdf",
+                "2080_Grading_Policy.pdf",
+                "2080_Grading_Policy.pdf",
+                "2080_Grading_Policy.pdf",
                 "2080_Grading_Policy.pdf",
                 "2080_Grading_Policy.pdf",
                 "2080_Grading_Policy.pdf"
@@ -60,11 +78,18 @@
             "question": "What does an incomplete grade mean?",
             "target_keywords": [
                 "incomplete",
-                "grade"
+                "not finished",
+                "F",
+                "N"
             ],
-            "generated_answer": "An incomplete (I) grade means that students who have completed substantial work in a course but have not finished by the end of the semester may request that the instructor assign an incomplete. If the instructor does not change the incomplete within one additional semester, it will convert to an \u201cF\u201d or \u201cN.\u201d (Source: C:\\Users\\ahh28\\OneDrive\\Documents\\SpringSem2026\\Capstone\\metro_docs\\2080_Grading_Policy.pdf)",
+            "generated_answer": "An incomplete (I) grade means that students who have completed substantial work in a course or Faculty Designed Independent Study (FDIS), but have not finished by the end of the semester, may request that the instructor assign an incomplete. If the instructor does not change the incomplete within one additional semester, it will convert to an \u201cF\u201d or \u201cN.\u201d (Source: C:\\Users\\ahh28\\OneDrive\\Documents\\SpringSem2026\\Capstone\\metro_docs\\2080_Grading_Policy.pdf)",
             "target_source": "2080_Grading_Policy.pdf",
             "retrieved_sources": [
+                "2080_Grading_Policy.pdf",
+                "2080_Grading_Policy.pdf",
+                "2080_Grading_Policy.pdf",
+                "2080_Grading_Policy.pdf",
+                "2080_Grading_Policy.pdf",
                 "2080_Grading_Policy.pdf",
                 "2080_Grading_Policy.pdf",
                 "2080_Grading_Policy.pdf"
@@ -75,12 +100,19 @@
         {
             "question": "What is the process for submitting an academic appeal?",
             "target_keywords": [
-                "appeal",
-                "process"
+                "appeal form",
+                "dispute",
+                "resolution",
+                "formal"
             ],
-            "generated_answer": "The process for submitting an academic appeal involves the following steps:\n\n1. Students are encouraged to first work with faculty and other staff to resolve their concerns informally before filing a formal appeal.\n2. If the informal resolution is not satisfactory, students can proceed to file a formal appeal related to program and graduation requirements, grades, or academic integrity findings and sanctions.\n3. The appeals are reviewed by the Academic Appeals Committee or its successors, and may also involve the Provost or equivalent senior academic officer.\n\nFor specific types of appeals, such as academic integrity appeals or grade/evaluation appeals, additional guidelines and sections in the procedure provide further details on the grounds for granting an appeal and potential remedies. \n\n(Source: C:\\Users\\ahh28\\OneDrive\\Documents\\SpringSem2026\\Capstone\\metro_docs\\209_Academic_Appeals_Procedure.pdf)",
+            "generated_answer": "To submit an academic appeal, students must follow these steps:\n\n1. **Informal Appeal**: Students are encouraged to first attempt to resolve the issue informally with the instructor. The instructor must respond to the informal appeal within 14 calendar days. If there is no response after 14 days, the appeal is considered denied, and the student may proceed to a formal appeal.\n\n2. **Formal Appeal Process**:\n   - Students must complete and submit an appeal form, which is available from the ombudsperson\u2019s office.\n   - The written appeal should include a description of the dispute, a requested resolution or remedy, and any supporting evidence or reasons.\n   - The burden of proof rests with the student filing the appeal.\n   - If needed, the ombudsperson can assist students in formulating and filing their appeals.\n\n3. **Routing of Appeals**: Upon receipt of the appeal form, the ombudsperson forwards copies to the instructor, the appropriate department chair, and the appropriate dean/executive director.\n\n4. **Hearing by the Academic Appeals Committee**: The Academic Appeals Committee will hear the appeal in a timely manner and will forward its written recommendation to the provost within five calendar days of the hearing.\n\n5. **Provost's Decision**: The provost will make a decision within fourteen calendar days of receiving the committee\u2019s recommendation.\n\nThis process is outlined in the Academic Appeals procedure document.",
             "target_source": "209_Academic_Appeals_Procedure.pdf",
             "retrieved_sources": [
+                "209_Academic_Appeals_Procedure.pdf",
+                "209_Academic_Appeals_Procedure.pdf",
+                "209_Academic_Appeals_Procedure.pdf",
+                "209_Academic_Appeals_Procedure.pdf",
+                "209_Academic_Appeals_Procedure.pdf",
                 "209_Academic_Appeals_Procedure.pdf",
                 "209_Academic_Appeals_Procedure.pdf",
                 "209_Academic_Appeals_Procedure.pdf"
@@ -91,34 +123,46 @@
         {
             "question": "When can a student file an academic appeal?",
             "target_keywords": [
-                "appeal",
-                "timeline"
+                "60",
+                "formal",
+                "informal"
             ],
-            "generated_answer": "A student can file an academic appeal after attempting to resolve the issue informally with the instructor. If the instructor does not respond to the student's informal appeal within 14 calendar days, the appeal is considered denied, and the student may then proceed to file a formal grade appeal. This information is sourced from the Academic Appeals Procedure document.",
+            "generated_answer": "A student can file a formal academic appeal within 60 calendar days of the posting of grades or evaluations. During those 60 days, students have the right to, and are encouraged to, try to resolve the appeal informally. Additionally, students are not required to seek an informal resolution nor wait until 14 days have passed before filing a formal appeal. (Source: C:\\Users\\ahh28\\OneDrive\\Documents\\SpringSem2026\\Capstone\\metro_docs\\209_Academic_Appeals_Procedure.pdf)",
             "target_source": "209_Academic_Appeals_Procedure.pdf",
             "retrieved_sources": [
                 "209_Academic_Appeals_Procedure.pdf",
                 "209_Academic_Appeals_Procedure.pdf",
+                "209_Academic_Appeals_Procedure.pdf",
+                "209_Academic_Appeals_Procedure.pdf",
+                "209_Academic_Appeals_Procedure.pdf",
+                "209_Academic_Appeals_Procedure.pdf",
+                "209_Academic_Appeals_Procedure.pdf",
                 "209_Academic_Appeals_Procedure.pdf"
             ],
-            "answer_score": 0,
+            "answer_score": 1,
             "source_score": 1
         },
         {
             "question": "How are transfer credits evaluated?",
             "target_keywords": [
-                "transfer",
-                "credits",
-                "evaluation"
+                "quality",
+                "comparability",
+                "appropriateness",
+                "applicability"
             ],
-            "generated_answer": "Transfer credits are evaluated based on three considerations: \n\nA. Educational quality of the learning experience which the student transfers,  \nB. Comparability of the nature, content, and level of the learning experience offered by the receiving college or university, and  \nC. Appropriateness and applicability of the learning experience to the programs offered by Metropolitan State University in light of the student\u2019s educational goals. \n\nAdditionally, the university will accept courses in transfer that it determines to be comparable or equivalent to specific courses it offers (Source: C:\\Users\\ahh28\\OneDrive\\Documents\\SpringSem2026\\Capstone\\metro_docs\\2120_Transfer_Credit_Policy.pdf).",
+            "generated_answer": "Transfer credits are evaluated based on three considerations: \n\nA. Educational quality of the learning experience which the student transfers,  \nB. Comparability of the nature, content, and level of the learning experience offered by the receiving college or university, and  \nC. Appropriateness and applicability of the learning experience to the programs offered by Metropolitan State University in light of the student\u2019s educational goals. \n\nOnce a student has been admitted to a Metropolitan State University degree program, the university evaluates college-level course credits completed, as submitted by the student on an official transcript, to determine if they shall be accepted in transfer. Each college or program then determines how the accepted course credits will apply to program and graduation requirements. (Source: C:\\Users\\ahh28\\OneDrive\\Documents\\SpringSem2026\\Capstone\\metro_docs\\2120_Transfer_Credit_Policy.pdf)",
             "target_source": "2120_Transfer_Credit_Policy.pdf",
             "retrieved_sources": [
                 "2120_Transfer_Credit_Policy.pdf",
                 "2050_Undergrad_Academic_Standing.pdf",
+                "2120_Transfer_Credit_Policy.pdf",
+                "2120_Transfer_Credit_Policy.pdf",
+                "2120_Transfer_Credit_Policy.pdf",
+                "2120_Transfer_Credit_Policy.pdf",
+                "2120_Transfer_Credit_Policy.pdf",
                 "2120_Transfer_Credit_Policy.pdf"
             ],
-            "answer_score": 0,
+            "answer_score": 1,
             "source_score": 1
         },
         {
@@ -132,6 +176,11 @@
             "retrieved_sources": [
                 "2120_Transfer_Credit_Policy.pdf",
                 "2120_Transfer_Credit_Policy.pdf",
+                "2120_Transfer_Credit_Policy.pdf",
+                "2120_Transfer_Credit_Policy.pdf",
+                "2120_Transfer_Credit_Policy.pdf",
+                "2120_Transfer_Credit_Policy.pdf",
+                "FirstYearStudent_Admissions.pdf",
                 "2120_Transfer_Credit_Policy.pdf"
             ],
             "answer_score": 0,
@@ -140,15 +189,22 @@
         {
             "question": "What is the attendance reporting requirement for students?",
             "target_keywords": [
-                "attendance",
-                "reporting"
+                "first",
+                "active attendance",
+                "second week",
+                "last date"
             ],
-            "generated_answer": "Faculty members are required to report non-attendance by the end of the second week of classes for courses with a compressed class schedule. Additionally, they must report a Last Date of Attendance (LDA) for students who receive failing grades at the time of submission of final grades. This information is used by the Financial Aid Office to determine if any portion of disbursed financial aid is subject to return. (Source: Attendance Verification and Non-Attendance Reporting Policy, University Policy 2259)",
+            "generated_answer": "Students are expected to attend all classes for which they are registered beginning with and including the first class session. They must be in \"active attendance\" to count as enrolled for financial aid eligibility purposes. If students have not actively attended by the end of the second week of classes during the regular semester, or by the end of the second class session for courses on a compressed schedule, they will be administratively dropped from the course without financial penalty. (Source: Attendance Verification and Non-Attendance Reporting Policy, University Policy 2259)",
             "target_source": "2259_Attendance_and_Non-Attendance_Reporting.pdf",
             "retrieved_sources": [
                 "2259_Attendance_and_Non-Attendance_Reporting.pdf",
                 "2259_Attendance_and_Non-Attendance_Reporting.pdf",
-                "2259_Attendance_and_Non-Attendance_Reporting.pdf"
+                "2259_Attendance_and_Non-Attendance_Reporting.pdf",
+                "2259_Attendance_and_Non-Attendance_Reporting.pdf",
+                "2259_Attendance_and_Non-Attendance_Reporting.pdf",
+                "2050_Undergrad_Academic_Standing.pdf",
+                "2050_Undergrad_Academic_Standing.pdf",
+                "2050_Undergrad_Academic_Standing.pdf"
             ],
             "answer_score": 1,
             "source_score": 1
@@ -157,14 +213,20 @@
             "question": "What happens if a student does not attend a class?",
             "target_keywords": [
                 "non-attendance",
-                "report"
+                "report",
+                "dropped"
             ],
-            "generated_answer": "If a student does not actively attend by the end of the second week of classes during the regular semester, or by the end of the second class session for courses on a compressed schedule, they will be administratively dropped from the course without financial penalty. Additionally, administratively dropped students who have been awarded financial aid for the course will not receive disbursement for those courses. (Source: C:\\Users\\ahh28\\OneDrive\\Documents\\SpringSem2026\\Capstone\\metro_docs\\2259_Attendance_and_Non-Attendance_Reporting.pdf)",
+            "generated_answer": "If a student does not actively attend by the end of the second week of classes during the regular semester, or by the end of the second class session for courses on a compressed schedule, they will be administratively dropped from the course without financial penalty. Additionally, administratively dropped students who have been awarded financial aid for the course will not receive disbursement for those courses. (Source: Attendance Verification and Non-Attendance Reporting Policy)",
             "target_source": "2259_Attendance_and_Non-Attendance_Reporting.pdf",
             "retrieved_sources": [
                 "2259_Attendance_and_Non-Attendance_Reporting.pdf",
                 "2259_Attendance_and_Non-Attendance_Reporting.pdf",
-                "2259_Attendance_and_Non-Attendance_Reporting.pdf"
+                "2259_Attendance_and_Non-Attendance_Reporting.pdf",
+                "Waitlist_and_CourseCancellations.pdf",
+                "2259_Attendance_and_Non-Attendance_Reporting.pdf",
+                "2080_Grading_Policy.pdf",
+                "2259_Attendance_and_Non-Attendance_Reporting.pdf",
+                "2080_Grading_Policy.pdf"
             ],
             "answer_score": 1,
             "source_score": 1
@@ -173,14 +235,25 @@
             "question": "What GPA is required to graduate with honors?",
             "target_keywords": [
                 "gpa",
-                "honors"
+                "honors",
+                "3.9",
+                "3.7",
+                "3.8",
+                "Magna",
+                "Summa",
+                "Cum Laude"
             ],
-            "generated_answer": "To graduate with honors, the following cumulative GPAs are required: \n- Summa Cum Laude: 3.900 or higher\n- Magna Cum Laude: 3.800 to 3.899\n- Cum Laude: 3.700 to 3.799 (Source: C:\\Users\\ahh28\\OneDrive\\Documents\\SpringSem2026\\Capstone\\metro_docs\\2520_GradwithHonors.pdf)",
+            "generated_answer": "To graduate with honors, the following cumulative GPAs are required: \n- Summa Cum Laude: 3.900 or higher\n- Magna Cum Laude: 3.800 to 3.899\n- Cum Laude: 3.700 to 3.799 (Source: C:\\Users\\ahh28\\OneDrive\\Documents\\SpringSem2026\\Capstone\\metro_docs\\2520_GradwithHonors.pdf).",
             "target_source": "2520_GradwithHonors.pdf",
             "retrieved_sources": [
                 "2520_GradwithHonors.pdf",
                 "2520_GradwithHonors.pdf",
-                "2520_GradwithHonors.pdf"
+                "2520_GradwithHonors.pdf",
+                "Graduation_and_Commencement.pdf",
+                "Graduation_and_Commencement.pdf",
+                "2520_GradwithHonors.pdf",
+                "Transfer_Student_Admissions.pdf",
+                "2050_Undergrad_Academic_Standing.pdf"
             ],
             "answer_score": 1,
             "source_score": 1
@@ -189,14 +262,21 @@
             "question": "What are the different levels of graduation honors?",
             "target_keywords": [
                 "honors",
-                "levels"
+                "Magna",
+                "Summa",
+                "Cum Laude"
             ],
-            "generated_answer": "The different levels of graduation honors and the cumulative GPA required to achieve them are:\n\n- Summa Cum Laude\u20143.900 or higher\n- Magna Cum Laude\u20143.800 to 3.899\n- Cum Laude\u20143.700 to 3.799\n\n(Source: C:\\Users\\ahh28\\OneDrive\\Documents\\SpringSem2026\\Capstone\\metro_docs\\2520_GradwithHonors.pdf)",
+            "generated_answer": "The different levels of graduation honors and the cumulative GPA required to achieve them are:\n\n- Summa Cum Laude: 3.900 or higher\n- Magna Cum Laude: 3.800 to 3.899\n- Cum Laude: 3.700 to 3.799\n\n(Source: C:\\Users\\ahh28\\OneDrive\\Documents\\SpringSem2026\\Capstone\\metro_docs\\Graduation_and_Commencement.pdf)",
             "target_source": "2520_GradwithHonors.pdf",
             "retrieved_sources": [
                 "2520_GradwithHonors.pdf",
                 "2520_GradwithHonors.pdf",
-                "2520_GradwithHonors.pdf"
+                "2520_GradwithHonors.pdf",
+                "2520_GradwithHonors.pdf",
+                "Graduation_and_Commencement.pdf",
+                "Graduation_and_Commencement.pdf",
+                "Graduation_and_Commencement.pdf",
+                "Graduation_and_Commencement.pdf"
             ],
             "answer_score": 1,
             "source_score": 1
@@ -204,15 +284,22 @@
         {
             "question": "What type of university is Metropolitan State?",
             "target_keywords": [
-                "metropolitan state",
-                "university"
+                "accredited",
+                "university",
+                "minnesota",
+                "higher education"
             ],
-            "generated_answer": "Metropolitan State University is a fully accredited, comprehensive university and a member of the Minnesota State higher education system. (Source: About_MetropolitanState.pdf)",
+            "generated_answer": "Metropolitan State University is a fully accredited, comprehensive university and a member of the Minnesota State higher education system. It is also recognized as a federally-recognized Minority-Serving Institution, specifically as an Asian American and Native American Pacific-Islander Serving Institution. Additionally, it is committed to being an anti-racist, equity-focused learning community. (Source: About_MetropolitanState.pdf)",
             "target_source": "About_MetropolitanState.pdf",
             "retrieved_sources": [
                 "About_MetropolitanState.pdf",
                 "Transcript_Request_Form.pdf",
-                "2120_Transfer_Credit_Policy.pdf"
+                "2120_Transfer_Credit_Policy.pdf",
+                "About_MetropolitanState.pdf",
+                "2050_Undergrad_Academic_Standing.pdf",
+                "2120_Transfer_Credit_Policy.pdf",
+                "2520_GradwithHonors.pdf",
+                "About_MetropolitanState.pdf"
             ],
             "answer_score": 1,
             "source_score": 1
@@ -220,31 +307,45 @@
         {
             "question": "What is the mission of Metropolitan State University?",
             "target_keywords": [
-                "mission",
-                "university"
+                "empowers",
+                "inclusive",
+                "antiracist",
+                "supportive"
             ],
-            "generated_answer": "I do not know. The provided context does not include the mission of Metropolitan State University.",
+            "generated_answer": "The mission of Metropolitan State University is not explicitly stated in the provided context. Therefore, I do not know.",
             "target_source": "About_MetropolitanState.pdf",
             "retrieved_sources": [
                 "About_MetropolitanState.pdf",
                 "About_MetropolitanState.pdf",
-                "2120_Transfer_Credit_Policy.pdf"
+                "2120_Transfer_Credit_Policy.pdf",
+                "About_MetropolitanState.pdf",
+                "Transcript_Request_Form.pdf",
+                "2050_Undergrad_Academic_Standing.pdf",
+                "2050_Undergrad_Academic_Standing.pdf",
+                "2050_Undergrad_Academic_Standing.pdf"
             ],
-            "answer_score": 1,
+            "answer_score": 0,
             "source_score": 1
         },
         {
             "question": "How do students apply for financial aid?",
             "target_keywords": [
-                "financial aid",
-                "apply"
+                "fasfa",
+                "Dream act",
+                "student aid",
+                "MN Office"
             ],
-            "generated_answer": "Students apply for financial aid by completing the FAFSA or MN Dream Act online. The FAFSA can be completed on the Student Aid website, while the MN Dream Act should be completed on the MN Office of Higher Education website. Additionally, students must apply for admission to be eligible for aid. (Source: Applying for Financial Aid PDF)",
+            "generated_answer": "Students apply for financial aid by completing the FAFSA or MN Dream Act online. The FAFSA can be completed on the Student Aid website, while the MN Dream Act should be completed on the MN Office of Higher Education website. Additionally, students must apply for admission, as only fully admitted students are eligible for aid. (Source: Applying for Financial Aid PDF)",
             "target_source": "Applying_for_FinancialAid.pdf",
             "retrieved_sources": [
                 "Applying_for_FinancialAid.pdf",
                 "Applying_for_FinancialAid.pdf",
-                "Applying_for_FinancialAid.pdf"
+                "Applying_for_FinancialAid.pdf",
+                "Applying_for_FinancialAid.pdf",
+                "FirstYearStudent_Admissions.pdf",
+                "2050_Undergrad_Academic_Standing.pdf",
+                "Applying_for_FinancialAid.pdf",
+                "2259_Attendance_and_Non-Attendance_Reporting.pdf"
             ],
             "answer_score": 1,
             "source_score": 1
@@ -252,31 +353,44 @@
         {
             "question": "What documents are needed for financial aid?",
             "target_keywords": [
-                "financial aid",
-                "documents"
+                "application",
+                "fasfa",
+                "tax return",
+                "income"
             ],
             "generated_answer": "The context does not specify the exact documents needed for financial aid. It mentions that students may receive a request for additional information from the Financial Aid Office and must complete and return any documents requested. Therefore, I do not know the specific documents required.",
             "target_source": "Applying_for_FinancialAid.pdf",
             "retrieved_sources": [
                 "Applying_for_FinancialAid.pdf",
                 "Applying_for_FinancialAid.pdf",
-                "Applying_for_FinancialAid.pdf"
+                "Applying_for_FinancialAid.pdf",
+                "Applying_for_FinancialAid.pdf",
+                "Applying_for_FinancialAid.pdf",
+                "2259_Attendance_and_Non-Attendance_Reporting.pdf",
+                "2050_Undergrad_Academic_Standing.pdf",
+                "2259_Attendance_and_Non-Attendance_Reporting.pdf"
             ],
-            "answer_score": 1,
+            "answer_score": 0,
             "source_score": 1
         },
         {
             "question": "How can a student find their academic advisor?",
             "target_keywords": [
                 "advisor",
-                "find"
+                "DARS",
+                "eServices"
             ],
-            "generated_answer": "A student can find their academic advisor by checking their Degree Audit Report (DARS) in their eServices account, where the advisor's name, email, and phone number are listed near the top. If no advisor is assigned or if the advisor is unavailable, the student can email or call the advising center connected to their intended major. (Source: Find_Advisor.pdf)",
+            "generated_answer": "A student can find their academic advisor by reviewing their Degree Audit Report (DARS) in their eServices account, where the advisor's name, email, and phone number are listed near the top of the DARS. If a student has no advisor assigned or if their advisor is unavailable, they can email or call the advising center connected to their intended major. (Source: Find_Advisor.pdf)",
             "target_source": "Find_Advisor.pdf",
             "retrieved_sources": [
                 "Find_Advisor.pdf",
                 "Find_Advisor.pdf",
-                "Find_Advisor.pdf"
+                "Find_Advisor.pdf",
+                "209_Academic_Appeals_Procedure.pdf",
+                "2050_Undergrad_Academic_Standing.pdf",
+                "2050_Undergrad_Academic_Standing.pdf",
+                "209_Academic_Appeals_Procedure.pdf",
+                "2050_Undergrad_Academic_Standing.pdf"
             ],
             "answer_score": 1,
             "source_score": 1
@@ -284,15 +398,24 @@
         {
             "question": "What are the requirements for first-year admission?",
             "target_keywords": [
-                "first-year",
-                "admission"
+                "2.75",
+                "GED",
+                "165",
+                "conditional",
+                "automatic",
+                "scores"
             ],
-            "generated_answer": "The requirements for first-year admission to Metro State are as follows:\n\n1. **Automatic Admission**: A cumulative high school GPA of at least 2.75 or a GED transcript with test scores of 165 on each subject.\n2. **Conditional Admission**: A cumulative GPA of between 2.5 and 2.75, which results in conditional admission with additional academic support.\n\n(Source: C:\\Users\\ahh28\\OneDrive\\Documents\\SpringSem2026\\Capstone\\metro_docs\\FirstYearStudent_Admissions.pdf)",
+            "generated_answer": "The requirements for first-year admission to Metro State are as follows:\n\n1. **Automatic Admission**: A cumulative high school GPA of at least 2.75 or a GED transcript with test scores of 165 on each subject.\n\n2. **Conditional Admission**: A cumulative GPA between 2.5 and 2.75 will result in conditional admission, with additional academic support provided.\n\n3. **Community College Transfer Pathway**: If the cumulative high school GPA is below 2.5, the student must attend a community college before re-applying as a transfer student.\n\n(Source: C:\\Users\\ahh28\\OneDrive\\Documents\\SpringSem2026\\Capstone\\metro_docs\\FirstYearStudent_Admissions.pdf)",
             "target_source": "FirstYearStudent_Admissions.pdf",
             "retrieved_sources": [
                 "FirstYearStudent_Admissions.pdf",
                 "GELS_CourseList.pdf",
-                "Placement_Assessment.pdf"
+                "Placement_Assessment.pdf",
+                "2050_Undergrad_Academic_Standing.pdf",
+                "FirstYearStudent_Admissions.pdf",
+                "FirstYearStudent_Admissions.pdf",
+                "GELS_CourseList.pdf",
+                "2050_Undergrad_Academic_Standing.pdf"
             ],
             "answer_score": 1,
             "source_score": 1
@@ -300,47 +423,49 @@
         {
             "question": "What materials are required for first-year applications?",
             "target_keywords": [
-                "application",
-                "requirements"
+                "transcripts",
+                "transcript",
+                "AP",
+                "application"
             ],
-            "generated_answer": "I do not know.",
+            "generated_answer": "The required materials for first-year applications include an official transcript from your high school and all post-secondary institutions where you were previously enrolled, even if no credit or clock hours were earned, as well as official advanced placement (AP) test scores. (Source: FirstYearStudent_Admissions.pdf)",
             "target_source": "FirstYearStudent_Admissions.pdf",
             "retrieved_sources": [
                 "Transfer_Student_Admissions.pdf",
                 "Placement_Assessment.pdf",
-                "FirstYearStudent_Admissions.pdf"
-            ],
-            "answer_score": 0,
-            "source_score": 1
-        },
-        {
-            "question": "What should students complete before their first semester?",
-            "target_keywords": [
-                "first semester",
-                "checklist"
-            ],
-            "generated_answer": "Students should complete the following before their first semester:\n\n1. Apply for Financial Aid and make arrangements to pay tuition\n2. Complete New Student Orientation\n3. Multi-factor Authentication (MFA) and signing into your Minnesota State Outlook email\n4. Review your Interactive Degree Audit/DARS report\n5. Connect with your college and academic advisor\n6. Placement assessment\n7. Register for courses or other learning strategies\n8. Student photo ID card\n9. Buy your books\n10. Provide immunization records\n11. Log on to Engage\n12. Set up your Handshake account\n13. Follow Metro State on social media\n\n(Source: First Semester Checklist)",
-            "target_source": "First_Semester_Checklist.pdf",
-            "retrieved_sources": [
+                "FirstYearStudent_Admissions.pdf",
                 "First_Semester_Checklist.pdf",
-                "Placement_Assessment.pdf",
-                "GELS_CourseList.pdf"
+                "2050_Undergrad_Academic_Standing.pdf",
+                "Transfer_Student_Admissions.pdf",
+                "GELS_CourseList.pdf",
+                "FirstYearStudent_Admissions.pdf"
             ],
             "answer_score": 1,
             "source_score": 1
         },
         {
-            "question": "What steps are included in the first semester checklist?",
+            "question": "What should students complete before their first semester?",
             "target_keywords": [
-                "checklist",
-                "steps"
+                "financial aid",
+                "student orientation",
+                "MFA",
+                "DARS",
+                "academic advisor",
+                "student ID",
+                "books",
+                "checklist"
             ],
-            "generated_answer": "The steps included in the first semester checklist are:\n\n1. Apply for Financial Aid and make arrangements to pay tuition\n2. Complete New Student Orientation\n3. Multi-factor Authentication (MFA) and signing into your Minnesota State Outlook email\n4. Review your Interactive Degree Audit/DARS report\n5. Connect with your college and academic advisor\n6. Placement assessment\n7. Register for courses or other learning strategies\n8. Student photo ID card\n9. Buy your books\n10. Provide immunization records\n11. Log on to Engage\n12. Set up your Handshake account\n13. Follow Metro State on our social media\n\n(Source: C:\\Users\\ahh28\\OneDrive\\Documents\\SpringSem2026\\Capstone\\metro_docs\\First_Semester_Checklist.pdf)",
+            "generated_answer": "Students should complete the following before their first semester:\n\n1. Apply for Financial Aid and make arrangements to pay tuition.\n2. Complete New Student Orientation.\n3. Multi-factor Authentication (MFA) and signing into their Minnesota State Outlook email.\n4. Review their Interactive Degree Audit/DARS report.\n5. Connect with their college and academic advisor.\n6. Placement assessment.\n7. Register for courses or other learning strategies.\n8. Obtain a student photo ID card.\n9. Buy their books.\n10. Provide immunization records.\n11. Log on to Engage.\n12. Set up their Handshake account.\n13. Follow Metro State on social media.\n\n(Source: First Semester Checklist PDF)",
             "target_source": "First_Semester_Checklist.pdf",
             "retrieved_sources": [
                 "First_Semester_Checklist.pdf",
+                "Placement_Assessment.pdf",
+                "GELS_CourseList.pdf",
                 "2080_Grading_Policy.pdf",
-                "2050_Undergrad_Academic_Standing.pdf"
+                "2050_Undergrad_Academic_Standing.pdf",
+                "GELS_CourseList.pdf",
+                "Transfer_Student_Admissions.pdf",
+                "GELS_CourseList.pdf"
             ],
             "answer_score": 1,
             "source_score": 1
@@ -348,31 +473,47 @@
         {
             "question": "What is the GELS course requirement?",
             "target_keywords": [
-                "gels",
-                "courses"
+                "10",
+                "goals",
+                "48 credits",
+                "upper divison",
+                "300"
             ],
-            "generated_answer": "To meet the university\u2019s General Education and Liberal Studies (GELS) requirements, students must complete each of the 10 goal areas of the Minnesota Transfer Curriculum (MnTC) and complete 48 unduplicated credits. Eight (8) of the 48 credits must be upper division (300-level or higher) to fulfill the university\u2019s Liberal Studies requirement. (Source: C:\\Users\\ahh28\\OneDrive\\Documents\\SpringSem2026\\Capstone\\metro_docs\\GELS_CourseList.pdf)",
+            "generated_answer": "To meet the university\u2019s General Education and Liberal Studies (GELS) requirements, students must complete each of the 10 goal areas of the Minnesota Transfer Curriculum (MnTC) and complete 48 unduplicated credits. Additionally, eight (8) of the 48 credits must be upper division (300-level or higher) to fulfill the university\u2019s Liberal Studies requirement. (Source: GELS_CourseList.pdf)",
             "target_source": "GELS_CourseList.pdf",
             "retrieved_sources": [
                 "GELS_CourseList.pdf",
                 "GELS_CourseList.pdf",
+                "GELS_CourseList.pdf",
+                "2120_Transfer_Credit_Policy.pdf",
+                "GELS_CourseList.pdf",
+                "GELS_CourseList.pdf",
+                "GELS_CourseList.pdf",
                 "GELS_CourseList.pdf"
             ],
-            "answer_score": 0,
+            "answer_score": 1,
             "source_score": 1
         },
         {
             "question": "How do students obtain a student ID?",
             "target_keywords": [
-                "student id",
-                "obtain"
+                "first-floor",
+                "Learning center",
+                "Commons desk",
+                "Star",
+                "Tech ID"
             ],
-            "generated_answer": "Students can obtain a student ID in person by visiting the first-floor Information Commons Desk in the Library and Learning Center, where they need to provide their Star or Tech ID and show an accepted form of ID. Alternatively, students can request their ID online by completing the ID request form in the Service Portal, and the ID can be mailed to them or held for pickup at the library. (Source: C:\\Users\\ahh28\\OneDrive\\Documents\\SpringSem2026\\Capstone\\metro_docs\\Getting_StudentID.pdf)",
+            "generated_answer": "Students can obtain a student ID in person by visiting the first-floor Information Commons Desk in the Library and Learning Center, where they need to provide their Star or Tech ID and show an accepted form of ID. Alternatively, students can request their ID online by completing the ID request form in the Service Portal, and the ID can be mailed to them or held for pickup at the library. (Source: Getting_StudentID.pdf)",
             "target_source": "Getting_StudentID.pdf",
             "retrieved_sources": [
                 "Getting_StudentID.pdf",
                 "Getting_StudentID.pdf",
-                "Getting_StudentID.pdf"
+                "Getting_StudentID.pdf",
+                "Getting_StudentID.pdf",
+                "First_Semester_Checklist.pdf",
+                "Transfer_Student_Admissions.pdf",
+                "Transcript_Request_Form.pdf",
+                "Applying_for_FinancialAid.pdf"
             ],
             "answer_score": 1,
             "source_score": 1
@@ -380,28 +521,18 @@
         {
             "question": "What is required to apply for graduation?",
             "target_keywords": [
-                "graduation",
-                "apply"
+                "workshop",
+                "completion",
+                "coursework"
             ],
-            "generated_answer": "To apply for graduation, you must register in eServices for the Graduation Requirements Workshop (WKSP GRAD) along with your final courses within the semester in which you intend to graduate. The workshop is an online session that contains all the information concerning graduation and includes a quiz regarding your intention for commencement participation. (Source: Graduation and Commencement document)",
+            "generated_answer": "To apply for graduation, you must register in eServices for the Graduation Requirements Workshop (WKSP GRAD) along with your final courses within the semester in which you intend to graduate. The workshop is an online session through D2L Brightspace that contains all the information concerning graduation and includes a quiz regarding your intention for commencement participation. (Source: Graduation and Commencement document)",
             "target_source": "Graduation_and_Commencement.pdf",
             "retrieved_sources": [
                 "Graduation_and_Commencement.pdf",
                 "Graduation_and_Commencement.pdf",
-                "Graduation_and_Commencement.pdf"
-            ],
-            "answer_score": 1,
-            "source_score": 1
-        },
-        {
-            "question": "What is commencement and when does it occur?",
-            "target_keywords": [
-                "commencement",
-                "ceremony"
-            ],
-            "generated_answer": "Commencement is a formal event held twice annually (spring and fall) to celebrate and recognize the milestone of completing (or the anticipated completion of) a program or degree for a respective group of students. The Fall 2025 Commencement will be held in person at Roy Wilkins Auditorium on Monday, December 15. (Source: Graduation and Commencement document)",
-            "target_source": "Graduation_and_Commencement.pdf",
-            "retrieved_sources": [
+                "Graduation_and_Commencement.pdf",
+                "2520_GradwithHonors.pdf",
+                "2520_GradwithHonors.pdf",
                 "Graduation_and_Commencement.pdf",
                 "Graduation_and_Commencement.pdf",
                 "Graduation_and_Commencement.pdf"
@@ -410,14 +541,48 @@
             "source_score": 1
         },
         {
+            "question": "What is commencement and when does it occur?",
+            "target_keywords": [
+                "formal event",
+                "ceremony",
+                "twice",
+                "spring",
+                "fall"
+            ],
+            "generated_answer": "Commencement is a formal event held twice annually (spring and fall) to celebrate and recognize the milestone of completing (or the anticipated completion of) a program or degree for a respective group of students. The Fall 2025 Commencement will be held in person at Roy Wilkins Auditorium on Monday, December 15, 2025. (Source: Graduation and Commencement document)",
+            "target_source": "Graduation_and_Commencement.pdf",
+            "retrieved_sources": [
+                "Graduation_and_Commencement.pdf",
+                "Graduation_and_Commencement.pdf",
+                "Graduation_and_Commencement.pdf",
+                "Graduation_and_Commencement.pdf",
+                "Graduation_and_Commencement.pdf",
+                "Graduation_and_Commencement.pdf",
+                "Graduation_and_Commencement.pdf",
+                "Graduation_and_Commencement.pdf"
+            ],
+            "answer_score": 1,
+            "source_score": 1
+        },
+        {
             "question": "What is a placement assessment?",
             "target_keywords": [
-                "placement",
-                "assessment"
+                "Accuplacer",
+                "assessment",
+                "skills",
+                "level",
+                "math",
+                "writing",
+                "reading"
             ],
-            "generated_answer": "A placement assessment is a process used to determine the appropriate level of courses for students at Metro State University. It involves evaluating students' prior coursework, high school GPA, MCA, SAT, or ACT scores, and Accuplacer scores to place them in suitable courses. If students are not automatically placed based on these criteria, they may need to take a placement exam. The assessment helps ensure that students are enrolled in courses that match their skill levels, and it is part of the Minnesota State Multiple Measures Course Placement Pilot Program. (Source: Placement_Assessment.pdf)",
+            "generated_answer": "A placement assessment is a process used to evaluate students' skill levels in subjects such as math, reading, and writing. The results of these assessments help students and their advisors select or recommend courses that are most suited to the students' academic needs. Additionally, placement assessments are used to meet prerequisites for specific courses or the university's general education competency requirements. (Source: Placement_Assessment.pdf)",
             "target_source": "Placement_Assessment.pdf",
             "retrieved_sources": [
+                "Placement_Assessment.pdf",
+                "Placement_Assessment.pdf",
+                "Placement_Assessment.pdf",
+                "Placement_Assessment.pdf",
+                "Placement_Assessment.pdf",
                 "Placement_Assessment.pdf",
                 "Placement_Assessment.pdf",
                 "Placement_Assessment.pdf"
@@ -428,15 +593,24 @@
         {
             "question": "What opportunities are available for student leadership?",
             "target_keywords": [
-                "leadership",
-                "student life"
+                "organizations",
+                "UAB",
+                "Orientation",
+                "Commencement",
+                "Events",
+                "Employment"
             ],
-            "generated_answer": "Opportunities for student leadership include:\n\n- Joining student organizations\n- Participating in Shared Governance, such as the Student Senate and Student Activities Fee Allocation Committee (SAFAC)\n- Being part of the University Activities Board (UAB)\n- Employment as Student Center Workers and New Student Orientation and Commencement Student Assistants\n- Attending leadership development workshops\n- Participating in orientation and commencement activities\n- Engaging in summer service projects\n- Taking part in community cultural events\n- Participating in university-wide committees or working groups\n\n(Source: Student Life and Leadership Development document)",
+            "generated_answer": "Opportunities for student leadership include:\n\n1. Joining student organizations.\n2. Participating in Shared Governance, such as the Student Senate and Student Activities Fee Allocation Committee (SAFAC).\n3. Being part of the University Activities Board (UAB).\n4. Employment opportunities like Student Center Workers and New Student Orientation and Commencement Student Assistants.\n5. Attending leadership development workshops.\n6. Participating in orientation and commencement activities.\n7. Engaging in summer service projects.\n8. Participating in community cultural events.\n9. Joining university-wide committees or working groups.\n\n(Source: Student Life and Leadership Development document)",
             "target_source": "StudentLife_and_Leadership_Development.pdf",
             "retrieved_sources": [
                 "StudentLife_and_Leadership_Development.pdf",
                 "StudentLife_and_Leadership_Development.pdf",
-                "StudentLife_and_Leadership_Development.pdf"
+                "StudentLife_and_Leadership_Development.pdf",
+                "Graduation_and_Commencement.pdf",
+                "Graduation_and_Commencement.pdf",
+                "Find_Advisor.pdf",
+                "GELS_CourseList.pdf",
+                "209_Academic_Appeals_Procedure.pdf"
             ],
             "answer_score": 1,
             "source_score": 1
@@ -444,30 +618,44 @@
         {
             "question": "When does the Summer 2026 semester begin?",
             "target_keywords": [
-                "summer 2026",
-                "start"
+                "summer",
+                "May 16",
+                "first session",
+                "full session"
             ],
-            "generated_answer": "The Summer 2026 semester begins on Saturday, May 16, 2026. (Source: C:\\Users\\ahh28\\OneDrive\\Documents\\SpringSem2026\\Capstone\\metro_docs\\Summer2026_AcademicCalendar.pdf)",
+            "generated_answer": "The Summer 2026 semester begins on Saturday, May 16, 2026, for the first session and full session courses (Source: Summer 2026 Academic Calendar).",
             "target_source": "Summer2026_AcademicCalendar.pdf",
             "retrieved_sources": [
                 "Summer2026_AcademicCalendar.pdf",
                 "Summer2026_AcademicCalendar.pdf",
-                "Summer2026_AcademicCalendar.pdf"
+                "Summer2026_AcademicCalendar.pdf",
+                "Summer2026_AcademicCalendar.pdf",
+                "Graduation_and_Commencement.pdf",
+                "2080_Grading_Policy.pdf",
+                "2080_Grading_Policy.pdf",
+                "Graduation_and_Commencement.pdf"
             ],
-            "answer_score": 0,
+            "answer_score": 1,
             "source_score": 1
         },
         {
             "question": "How can a student request a transcript?",
             "target_keywords": [
-                "transcript",
-                "request"
+                "mail",
+                "in-person",
+                "student services",
+                "cash"
             ],
-            "generated_answer": "A student can request a transcript by using the Official Transcript Request form. They should complete the form and submit it by mail, enclosing payment (Cashier\u2019s check or money order ONLY made payable). Additionally, students are encouraged to order transcripts online at metrostate.edu/academics/records/transcript-requests, as this method is both cheaper and faster. (Source: Transcript Request Form.pdf)",
+            "generated_answer": "A student can request a transcript by completing the Transcript Request Form and submitting it either by mail or in person. For mail, they should enclose the completed form with payment (cashier\u2019s check or money order made payable to Metropolitan State University) and send it to the specified address. For in-person requests, they should bring the completed form to the Gateway Student Services Center, where they will be directed to make payment (cash, credit/debit card, cashier\u2019s check, or money order). Additionally, students are encouraged to order transcripts online at metrostate.edu/academics/records/transcript-requests, as it is cheaper and faster. (Source: Transcript Request Form)",
             "target_source": "Transcript_Request_Form.pdf",
             "retrieved_sources": [
                 "Transcript_Request_Form.pdf",
                 "Transcript_Request_Form.pdf",
+                "Transcript_Request_Form.pdf",
+                "Graduation_and_Commencement.pdf",
+                "FirstYearStudent_Admissions.pdf",
+                "2080_Grading_Policy.pdf",
+                "Transfer_Student_Admissions.pdf",
                 "Transcript_Request_Form.pdf"
             ],
             "answer_score": 1,
@@ -479,15 +667,20 @@
                 "transfer",
                 "admission"
             ],
-            "generated_answer": "I do not know.",
+            "generated_answer": "Transfer students must have attempted at least 16 college-level semester credits of transferable (non-developmental) post-secondary coursework. There are three ways to attend Metro State as a transfer student:\n\n1. **Automatic Admission**: A cumulative GPA of at least 2.0 with 16 transferable college-level semester credits attempted will result in automatic admission to the university. A higher GPA may be required for admission into some programs.\n\n2. **Conditional Admission**: If a student has a cumulative GPA of between 1.5 and 2.0, they will be conditionally admitted to the university and will receive additional academic support.\n\n3. **Community College Transfer Pathway**: If a student has a cumulative high school GPA below 2.5, they must attend a community college before re-applying as a transfer student. (Source: C:\\Users\\ahh28\\OneDrive\\Documents\\SpringSem2026\\Capstone\\metro_docs\\Transfer_Student_Admissions.pdf)",
             "target_source": "Transfer_Student_Admissions.pdf",
             "retrieved_sources": [
                 "2120_Transfer_Credit_Policy.pdf",
                 "2050_Undergrad_Academic_Standing.pdf",
-                "FirstYearStudent_Admissions.pdf"
+                "FirstYearStudent_Admissions.pdf",
+                "FirstYearStudent_Admissions.pdf",
+                "2120_Transfer_Credit_Policy.pdf",
+                "2050_Undergrad_Academic_Standing.pdf",
+                "2120_Transfer_Credit_Policy.pdf",
+                "Transfer_Student_Admissions.pdf"
             ],
-            "answer_score": 0,
-            "source_score": 0
+            "answer_score": 1,
+            "source_score": 1
         },
         {
             "question": "How does the course waitlist system work?",
@@ -495,12 +688,17 @@
                 "waitlist",
                 "course"
             ],
-            "generated_answer": "The course waitlist system allows students to place themselves on a waiting list for classes that have reached their capacity. Important points to remember include:\n\n1. A student's registration window must be open to place themselves on the waitlist.\n2. Being on the waitlist does not guarantee a spot in the course.\n3. Waitlist offers are sent to the student's Metro State email account, so it's important to check this account and the junk folder daily.\n4. Not all courses have a waitlist available.\n5. The waitlist function is shut off at 11:59 a.m. on the Wednesday prior to the start of any given term, after which courses are available to anyone if a seat becomes available.\n6. No petitions or overrides for full wait-listed courses are processed until the waitlist is shut off.\n\n(Source: C:\\Users\\ahh28\\OneDrive\\Documents\\SpringSem2026\\Capstone\\metro_docs\\Waitlist_and_CourseCancellations.pdf)",
+            "generated_answer": "The course waitlist system allows students to place themselves on a waiting list for classes that have reached their capacity. Important points to remember include:\n\n1. A student's registration window must be open to place themselves on the waitlist.\n2. Being on the waitlist does not guarantee a spot in the course.\n3. Waitlist offers are sent to the student's Metro State email account, so it's important to check this account and the junk folder daily.\n4. Not all courses have a waitlist available.\n5. The waitlist function is shut off at 11:59 a.m. on the Wednesday prior to the start of any given term, after which courses are available to anyone if a seat becomes available.\n6. No petitions or overrides for full wait-listed courses are processed until the waitlist is shut off. \n\n(Source: C:\\Users\\ahh28\\OneDrive\\Documents\\SpringSem2026\\Capstone\\metro_docs\\Waitlist_and_CourseCancellations.pdf)",
             "target_source": "Waitlist_and_CourseCancellations.pdf",
             "retrieved_sources": [
                 "Waitlist_and_CourseCancellations.pdf",
                 "Waitlist_and_CourseCancellations.pdf",
-                "FirstYearStudent_Admissions.pdf"
+                "FirstYearStudent_Admissions.pdf",
+                "Waitlist_and_CourseCancellations.pdf",
+                "Summer2026_AcademicCalendar.pdf",
+                "2080_Grading_Policy.pdf",
+                "2080_Grading_Policy.pdf",
+                "2259_Attendance_and_Non-Attendance_Reporting.pdf"
             ],
             "answer_score": 1,
             "source_score": 1
@@ -511,10 +709,15 @@
                 "course",
                 "cancellation"
             ],
-            "generated_answer": "When a course is canceled, Metro State University notifies registered students and processes full refunds of any monies paid. Cancellations and other schedule changes occur daily, and students are advised to check the e-Services Class Schedule for the most up-to-date information. (Source: Waitlist and Course Cancellations PDF)",
+            "generated_answer": "When a course is canceled, Metro State University notifies registered students and processes full refunds of any monies paid. This information is sourced from the document on waitlist and course cancellations.",
             "target_source": "Waitlist_and_CourseCancellations.pdf",
             "retrieved_sources": [
                 "Waitlist_and_CourseCancellations.pdf",
+                "Waitlist_and_CourseCancellations.pdf",
+                "2259_Attendance_and_Non-Attendance_Reporting.pdf",
+                "2259_Attendance_and_Non-Attendance_Reporting.pdf",
+                "2080_Grading_Policy.pdf",
+                "2080_Grading_Policy.pdf",
                 "Waitlist_and_CourseCancellations.pdf",
                 "2259_Attendance_and_Non-Attendance_Reporting.pdf"
             ],
@@ -531,10 +734,15 @@
             "retrieved_sources": [
                 "GELS_CourseList.pdf",
                 "2120_Transfer_Credit_Policy.pdf",
+                "2120_Transfer_Credit_Policy.pdf",
+                "2080_Grading_Policy.pdf",
+                "2050_Undergrad_Academic_Standing.pdf",
+                "2120_Transfer_Credit_Policy.pdf",
+                "2050_Undergrad_Academic_Standing.pdf",
                 "2120_Transfer_Credit_Policy.pdf"
             ],
             "answer_score": 1,
-            "source_score": 0
+            "source_score": 1
         },
         {
             "question": "What is the policy on pets on campus?",
@@ -546,10 +754,15 @@
             "retrieved_sources": [
                 "2259_Attendance_and_Non-Attendance_Reporting.pdf",
                 "2050_Undergrad_Academic_Standing.pdf",
-                "2050_Undergrad_Academic_Standing.pdf"
+                "2050_Undergrad_Academic_Standing.pdf",
+                "2259_Attendance_and_Non-Attendance_Reporting.pdf",
+                "2520_GradwithHonors.pdf",
+                "2520_GradwithHonors.pdf",
+                "2080_Grading_Policy.pdf",
+                "2120_Transfer_Credit_Policy.pdf"
             ],
             "answer_score": 1,
-            "source_score": 0
+            "source_score": 1
         }
     ]
 }

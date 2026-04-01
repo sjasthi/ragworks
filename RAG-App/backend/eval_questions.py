@@ -145,7 +145,7 @@ eval_questions = [
 # --- Graduation ---
 {
     "question": "What is required to apply for graduation?",
-    "target_keywords": ["graduation workshop", "completion", "courswork"],
+    "target_keywords": ["workshop", "completion", "coursework"],
     "target_source": "Graduation_and_Commencement.pdf"
 },
 {
@@ -157,7 +157,7 @@ eval_questions = [
 # --- Placement ---
 {
     "question": "What is a placement assessment?",
-    "target_keywords": ["Accuplacer", "assessment", "skills", "math", "reading", "writing"],
+    "target_keywords": ["Accuplacer", "assessment", "skills", "level", "math", "writing", "reading"],
     "target_source": "Placement_Assessment.pdf"
 },
 
@@ -234,6 +234,9 @@ def score_source(retrieved_docs, target_source):
     Basic 0/1 source scoring.
     Returns 1 if the expected source appears in retrieved docs.
     """
+    if target_source == "NONE":
+        return 1
+    
     sources = []
 
     for doc in retrieved_docs:
@@ -332,9 +335,9 @@ if __name__ == "__main__":
 
     summary = run_evaluation(
         test_questions,
-        top_k=3,
-        temperature=0.0,
-        top_p=1.0
+        top_k=8,
+        temperature=0.2,
+        top_p=1.0 
     )
 
     print_results(summary)

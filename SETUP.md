@@ -73,3 +73,12 @@ Sharing a central set of data one will need to export both the MySQL data and Ch
 
     All set storage shared.
 
+    Testing the RAG System Accuracy
+    Version: 4/1/2026
+
+    1. Change the top k, top p, and temperature values to desired testing values. 
+    2. Navigate to the backend directory
+    3. run: 
+        python eval_questions.py 
+    4. Wait a minute or two. 
+    5. Results of the entire test will appear at the top, the individual questions results will appear below. 
