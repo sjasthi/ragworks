@@ -305,43 +305,24 @@ def get_context(query, k=3, return_docs=False):
     ]
     return "\n\n".join(context_blocks)
 
-#Original Run RAG function that just returns the generated answer without the retrieved sources. 
-def run_rag(user_input):
-    context = get_context(user_input)
 
-    messages = [
-        {
-            "role": "system",
-            "content": "Answer the question using ONLY the provided context. If not in context, say you do not know and do not include the source."
-            "If the answer is found, include the source at the end on a seperate line in the format (Source: filename)."
-        },
-        {
-            "role": "user",
-            "content": f"Context:\n{context}\n\nQuestion: {user_input}"
-        }
-    ]
-
-    response = client.chat.completions.create(
-        model="gpt-4o-mini",
-        messages=messages,
-    )
-
-    return response.choices[0].message.content
-
-#Better Run Rag version that returns both the generated answer and the retrieved documents/sources in a structured way for better evaluation and diagnostics.
-def run_rag_eval(user_input, top_k=3, temperature=0.0, top_p=1.0):
+#Shared helper for both run_rag and run_rag_eval to get the context, but run_rag_eval can also return the retrieved documents in a structured way for better evaluation and diagnostics.
+def build_rag_response(user_input, top_k=3, temperature=0.0, top_p=1.0):
     retrieved_docs = get_context(user_input, k=top_k, return_docs=True)
 
-    #Use only the basename file not the path in the source when constructing the context for the LLM making it cleaner for later output
     context = "\n\n".join(
-        [f"[Source: {os.path.basename(doc['source'])}]\n{doc['content']}" 
-        for doc in retrieved_docs]
+        [f"[Source: {os.path.basename(doc['source'])}]\n{doc['content']}"
+         for doc in retrieved_docs]
     )
 
     messages = [
         {
             "role": "system",
-            "content": "Answer the question using ONLY the provided context. If the answer is not in the context, say you do not know. When possible, mention the source used."
+            "content": (
+                "Answer the question using ONLY the provided context. "
+                "If the answer is not in the context, say you do not know and do not include the source. "
+                "If the answer is found, include the source at the end on a separate line in the format (Source: filename)."
+            )
         },
         {
             "role": "user",
@@ -361,6 +342,14 @@ def run_rag_eval(user_input, top_k=3, temperature=0.0, top_p=1.0):
         "retrieved_docs": retrieved_docs
     }
 
+# Basic Run Rag function that just returns the generated answer for a given user input, using the retrieved context from the database.
+def run_rag(user_input):
+    result = build_rag_response(user_input, top_k=3, temperature=0.0, top_p=1.0)
+    return result["answer"]
+
+#Better version of run_rag for evaluation that also returns the retrieved documents along with the generated answer, and allows for testing different retrieval and generation parameters like top_k, temperature, and top_p. This way we can analyze not just the final answer but also what information the model had access to during generation, which is crucial for diagnosing performance issues in the evaluation.
+def run_rag_eval(user_input, top_k=3, temperature=0.0, top_p=1.0):
+    return build_rag_response(user_input, top_k=top_k, temperature=temperature, top_p=top_p)
 
 #--- List and delete files Admin Helpers---
 
