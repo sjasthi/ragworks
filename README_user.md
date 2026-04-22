@@ -1,4 +1,4 @@
-# RAGworks chat and storage assistant
+ # RAGworks Retrieval-Augmented Generation (RAG) system.
 ## This README is for end users/actual users of this application
 ## This will give you a basic rundown on how to use it once its up and running, it'll be split into the roles of the User and Admin
 
