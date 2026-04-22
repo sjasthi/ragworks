@@ -35,6 +35,15 @@ const Login = ({loginAction}) => {
         />
 
         <button onClick={UserAuthentication}>Login</button>
+
+        <a
+          className="about-link"
+          href={process.env.PUBLIC_URL + "/AboutTheProject.html"}
+          target="_blank"
+          rel="noreferrer"
+        >
+          About the Project
+        </a>
       </div>
     </div>
   );
