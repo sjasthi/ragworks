@@ -1,7 +1,5 @@
  # RAGworks Retrieval-Augmented Generation (RAG) system.
-## This document is intended for developers who want to understand, modify, or extend the Retrieval-Augmented Generation (RAG) system.
-## This application allows users to upload documents and ask questions.
-## The system retrieves relevant content from stored documents and uses an LLM to generate grounded responses.
+### This document is intended for developers who want to understand, modify, or extend the Retrieval-Augmented Generation (RAG) system. This application allows users to upload documents and ask questions. The system retrieves relevant content from stored documents and uses an LLM to generate grounded responses.
 
 
 # Architecture 
@@ -34,7 +32,7 @@ App.js (Main Entry)
     * root component of the React application 
     * Handles routing between user and admin views
 
-    Query Handling 
+Query Handling 
     * captures user input 
 
 # Document Ingestion Pipeline 
@@ -49,26 +47,26 @@ When a document is uploaded:
 
 # Retrieval + Generation
 When answering a query:
-    * Query is embedded
-    * Top k relevant chunks are retrieved
-    * Context is passed into the LLM
-    * Response is generated based only on retrieved context
+ * Query is embedded
+ * Top k relevant chunks are retrieved
+   \ * Context is passed into the LLM
+   \ * Response is generated based only on retrieved context
 Key Parameters:
-    * top_k → number of chunks retrieved
-    * temperature → randomness of response
-    * top_p → vocabulary diversity
+   \ * top_k → number of chunks retrieved
+   \ * temperature → randomness of response
+   \ * top_p → vocabulary diversity
 
 # Evaluation System
 eval_questions.py (evaluates the accuracy of the system)
 
 Metrics: 
-    * Answer accuracy 
-    * Source accuracy 
+   \ * Answer accuracy 
+   \ * Source accuracy 
 
 Parameters tested: 
-    * top_k = 3, 5, 8
-    * temperature = 0.0 – 0.2
-    * top_p = 0.8 – 1.0
+   \ * top_k = 3, 5, 8 
+   \ * temperature = 0.0 – 0.2
+   \ * top_p = 0.8 – 1.0
 
 Final Insight: Increasing top_k improved both answer and source accuracy by providing more context to the model. There is a limit to this performance. Performance does not increase linear to k. 
 
